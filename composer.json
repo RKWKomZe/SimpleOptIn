@@ -1,0 +1,34 @@
+{
+    "name": "madj2k/t3-simple-consent",
+    "type": "typo3-cms-extension",
+    "description": "Extension for a simple GDPR consent",
+    "homepage": "https://www.steffenkroggel.de",
+    "license": ["GPL-2.0+"],
+    "keywords": ["TYPO3 CMS", "Opt-In", "GDPR"],
+    "support": {
+        "email": "developer@steffenkroggel.de"
+    },
+    "authors": [
+        {
+            "name": "Steffen Kroggel",
+            "email": "developer@steffenkroggel.de",
+            "homepage": "https://www.steffenkroggel.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "typo3/cms-core": "~9.5.0",
+        "madj2k/t3-core-extended": "~9.5.4"
+	  },
+    "autoload": {
+        "psr-4": {
+            "Madj2k\\SimpleConsent\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "simple_consent"
+        }
+    }
+}

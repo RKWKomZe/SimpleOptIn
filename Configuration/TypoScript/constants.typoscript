@@ -1,0 +1,25 @@
+plugin.tx_simpleconsent {
+	view {
+		# cat=plugin.tx_simpleconsent/file; type=string; label=Path to template root (FE)
+		templateRootPath  = EXT:simple_consent/Resources/Private/Templates/
+
+		# cat=plugin.tx_simpleconsent/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:simple_consent/Resources/Private/Partials/
+
+		# cat=plugin.tx_simpleconsent/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath  = EXT:simple_consent/Resources/Private/Layouts/
+	}
+
+	persistence {
+		# cat=plugin.tx_simpleconsent//a; type=string; label=Default storage PID
+		storagePid =
+
+		# cat=plugin.tx_simpleconsent//a; type=string; label=Storage PID for new records
+        storagePidNewRecords =
+	}
+
+	settings {
+
+
+	}
+}

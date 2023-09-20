@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-12T13:49:26Z" product-name="simple_consent">
+		<header/>
+		<body>
+			<!-- tx_simpleconsent_domain_model_address -->
+            <trans-unit id="tx_simpleconsent_domain_model_address">
+                <source>SimpleConsent: Address</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender">
+                <source>Salutation</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
+                <source>Mr.</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.1">
+                <source>Mrs.</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.2">
+                <source>Mx.</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.99">
+                <source>Please Select</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.first_name">
+                <source>First Name</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.last_name">
+                <source>Last Name</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.address">
+                <source>Address</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.zip">
+                <source>Zip</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.city">
+                <source>City</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.email">
+                <source>E-Mail</source>
+            </trans-unit>
+
+
+            <!-- ConsentController -->
+            <trans-unit id="consentController.message.confirmed">
+                <source>Thank you very much for your consent.</source>
+            </trans-unit>
+            <trans-unit id="consentController.message.deleted">
+                <source>Thank you for your feedback. We will delete your personal data from our database as soon as possible.</source>
+            </trans-unit>
+
+
+            <!-- Template: Consent/Show.html -->
+            <trans-unit id="templates_consent.confirm">
+                <source>Confirm</source>
+            </trans-unit>
+            <trans-unit id="templates_consent.delete">
+                <source>Delete</source>
+            </trans-unit>
+        </body>
+	</file>
+</xliff>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="simple_consent" target-language="de" date="2014-06-12T13:49:26Z">
+		<body>
+            <!-- tx_simpleconsent_domain_model_address -->
+            <trans-unit id="tx_simpleconsent_domain_model_address">
+                <source>SimpleConsent: Address</source>
+                <target>SimpleConsent: Adresse</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender">
+                <source>Salutation</source>
+                <target>Anrede</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
+                <source>Mr.</source>
+                <target>Herr</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.1">
+                <source>Mrs.</source>
+                <target>Frau</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.2">
+                <source>Mx.</source>
+                <target>Divers</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.gender.99">
+                <source>Please Select</source>
+                <target>Bitte wählen</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.first_name">
+                <source>First Name</source>
+                <target>Vorname</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.last_name">
+                <source>Last Name</source>
+                <target>Nachname</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.company">
+                <source>Company</source>
+                <target>Firma</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.address">
+                <source>Address</source>
+                <target>Anschrift</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.zip">
+                <source>Zip</source>
+                <target>PLZ</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.city">
+                <source>City</source>
+                <target>Stadt</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.phone">
+                <source>Phone</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.email">
+                <source>E-Mail</source>
+                <target>E-Mail</target>
+            </trans-unit>
+
+
+            <!-- ConsentController -->
+			<trans-unit id="consentController.message.confirmed">
+				<source>Thank you very much for your consent.</source>
+				<target>Herzlichen Dank für Ihre Einwilligung.</target>
+			</trans-unit>
+			<trans-unit id="consentController.message.deleted">
+				<source>Thank you for your feedback. We will delete your personal data from our database as soon as possible.</source>
+				<target>Danke für Ihre Rückmeldung. Wir werden Ihre personenbezogenen Daten schnellstmöglich aus unserem Datenbestand löschen.</target>
+			</trans-unit>
+
+
+            <!-- Template: Consent/Show.html -->
+            <trans-unit id="templates_consent.confirm">
+                <source>Confirm</source>
+                <target>Bestätigen</target>
+            </trans-unit>
+            <trans-unit id="templates_consent.delete">
+                <source>Delete</source>
+                <target>Löschen</target>
+            </trans-unit>
+        </body>
+	</file>
+</xliff>

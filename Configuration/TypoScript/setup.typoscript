@@ -1,0 +1,36 @@
+// #########################################################
+// Plugin Configuration
+// #########################################################
+plugin.tx_simpleconsent {
+
+	view {
+		layoutRootPaths {
+			0 = EXT:simple_consent/Resources/Private/Layouts/
+			1 = {$plugin.tx_simpleconsent.view.layoutRootPath}
+		}
+		templateRootPaths {
+			0 = EXT:simple_consent/Resources/Private/Templates/
+            1 = {$plugin.tx_simpleconsent.view.templateRootPath}
+        }
+		partialRootPaths {
+			0 = EXT:simple_consent/Resources/Private/Partials/
+			1 = {$plugin.tx_simpleconsent.view.partialRootPath}
+			2 = {$plugin.tx_coreextended.view.partialRootPath}
+        }
+	}
+
+	persistence {
+		storagePid = {$plugin.tx_simpleconsent.persistence.storagePid}
+		storagePidNewRecords = {$plugin.tx_simpleconsent.persistence.storagePidNewRecords}
+	}
+
+	features {
+	  	# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+
+	settings {
+
+	}
+}
+
