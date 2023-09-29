@@ -18,16 +18,21 @@ use Madj2k\Postmaster\Mail\MailMessage;
 use Madj2k\Postmaster\Validation\QueueMailValidator;
 use Madj2k\SimpleConsent\Domain\Model\Address;
 use Madj2k\SimpleConsent\Domain\Repository\AddressRepository;
+use Madj2k\SimpleConsent\Domain\Repository\MailRepository;
+use Madj2k\SimpleConsent\Service\MailService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use TYPO3\CMS\Core\Database\Connection;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogLevel;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
  * class SendCommand
@@ -43,24 +48,24 @@ class SendCommand extends Command
 {
 
     /**
-     * addressRepository
-     *
-     * @var \Madj2k\SimpleConsent\Domain\Repository\AddressRepository|null
+     * @var \Madj2k\SimpleConsent\Domain\Repository\MailRepository|null
      */
-    protected ?AddressRepository $addressRepository = null;
-
+    protected ?MailRepository $mailRepository = null;
 
     /**
-     * @var \Madj2k\Postmaster\Mail\MailMessage
+     * @var \Madj2k\Postmaster\Mail\MailMessage|null
      */
-    protected MailMessage $mailMessage;
-
+    protected ?MailMessage $mailMessage = null;
 
     /**
-     * @var \Madj2k\Postmaster\Validation\QueueMailValidator
+     * @var \Madj2k\SimpleConsent\Service\MailService|null
      */
-    protected QueueMailValidator $queueMailValidator;
+    protected ?MailService $mailService = null;
 
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager|null
+     */
+    protected ?PersistenceManager $persistenceManager = null;
 
     /**
      * @var \TYPO3\CMS\Core\Log\Logger|null
@@ -107,9 +112,10 @@ class SendCommand extends Command
     {
         /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $this->addressRepository = $objectManager->get(AddressRepository::class);
         $this->mailMessage = $objectManager->get(MailMessage::class);
-        $this->queueMailValidator = $objectManager->get(QueueMailValidator::class);
+        $this->mailService = $objectManager->get(MailService::class);
+        $this->mailRepository = $objectManager->get(MailRepository::class);
+        $this->persistenceManager = $objectManager->get(PersistenceManager::class);
     }
 
 
@@ -119,6 +125,8 @@ class SendCommand extends Command
      * @param \Symfony\Component\Console\Input\InputInterface $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @return int
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @see \Symfony\Component\Console\Input\InputInterface::bind()
      * @see \Symfony\Component\Console\Input\InputInterface::validate()
      */
@@ -131,41 +139,137 @@ class SendCommand extends Command
         $sleep = $input->getOption('sleep');
 
         $result = 0;
-        try {
 
-            $addresses = $this->addressRepository->findBySent(0);
-            if (count($addresses)) {
 
-                /** @var \RKW\RkwNewsletter\Domain\Model\Issue $issue */
-                foreach ($issues as $issue) {
+        /** @var \TYPO3\CMS\Core\Database\ConnectionPool $connectionPool */
+        $connectionPool = \Madj2k\CoreExtended\Utility\GeneralUtility::makeInstance(ConnectionPool::class);
 
-                    $this->mailProcessor->setIssue($issue);
-                    $this->mailProcessor->setRecipients();
-                    $this->mailProcessor->sendMails($recipientsPerNewsletterLimit);
+        // find mail with matching status
+        $mails = $this->mailRepository->findByStatus(2);
 
+        /** @var \Madj2k\SimpleConsent\Domain\Model\Mail $mail */
+        if ($mails) {
+
+            foreach ($mails as $mail) {
+                try {
+                    // we load the uid of the addresses via queryBuilder because this way we do not run in performance issues
+                    $queryBuilder = $connectionPool->getQueryBuilderForTable('tx_simpleconsent_domain_model_mail');
+                    $queryBuilder->getRestrictions()->removeAll();
+
+                    $statement = $queryBuilder->select('addresses')
+                        ->from('tx_simpleconsent_domain_model_mail')
+                        ->where(
+                            $queryBuilder->expr()->eq(
+                                'uid',
+                                $queryBuilder->createNamedParameter($mail->getUid(), \PDO::PARAM_INT)
+                            )
+                        )->execute();
+
+                    // is there already a queueMail set?
+                    if ($mail->getQueueMail()) {
+                        $this->mailMessage->setQueueMail($mail->getQueueMail());
+
+                        // if not, create one with active pipelining
+                    } else {
+                        $this->mailMessage->startPipelining();
+                        $mail->setQueueMail($this->mailMessage->getQueueMail());
+                    }
+
+                    $recipientCnt = 0;
+                    if ($addressesList = $statement->fetchColumn()) {
+
+                        // now load the addresses
+                        $queryBuilder = $connectionPool->getQueryBuilderForTable('tx_simpleconsent_domain_model_address');
+                        $statement = $queryBuilder->select('*')
+                            ->from('tx_simpleconsent_domain_model_address')
+                            ->where(
+                                $queryBuilder->expr()->eq(
+                                    'status',
+                                    $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
+                                ),
+                                $queryBuilder->expr()->in(
+                                    'uid',
+                                    $queryBuilder->createNamedParameter(
+                                        \Madj2k\CoreExtended\Utility\GeneralUtility::intExplode(',', $addressesList, true),
+                                        Connection::PARAM_INT_ARRAY
+                                    )
+                                )
+                            )
+                            ->setMaxResults($recipientsLimit)
+                            ->execute();
+
+                        // Do something with that single row
+                        while ($address = $statement->fetchAssociative()) {
+
+                            // send mail
+                            $this->mailService->sendConsentEmail($address, $mail, $this->mailMessage);
+
+                            // update status
+                            $updateQueryBuilder = $connectionPool->getQueryBuilderForTable('tx_simpleconsent_domain_model_address');
+                            $updateQueryBuilder->update('tx_simpleconsent_domain_model_address')
+                                ->set('status', 1)
+                                ->set('tstamp', time())
+                                ->where(
+                                    $updateQueryBuilder->expr()->eq(
+                                        'uid',
+                                        $updateQueryBuilder->createNamedParameter($address['uid']), \PDO::PARAM_INT
+                                    )
+                                );
+                            $updateQueryBuilder->execute();
+
+                            // increase counter
+                            $recipientCnt++;
+                        }
+                    }
+
+                    // if there are no recipients left, we stop the pipelining and set the status of the mail accordingly
+                    if ($recipientCnt == 0) {
+                        $this->mailMessage->stopPipelining();
+                        $mail->setStatus(3);
+
+                        $message = sprintf('Mailing finished for consent-mail with uid %s.', $mail->getUid());
+                        $io->note($message);
+                        $this->getLogger()->log(LogLevel::INFO, $message);
+
+                    } else {
+
+                        $message = sprintf('Sent consent-mail with uid %s to %s recipients', $mail->getUid(), $recipientCnt);
+                        $io->note($message);
+                        $this->getLogger()->log(LogLevel::INFO, $message);
+                    }
+
+                    // sleep defined time
                     usleep(intval($sleep * 1000000));
+
+                } catch (\Exception $e) {
+
+                    $message = sprintf('An error occurred while trying to send consent-mail with uid %s: %s',
+                        $mail->getUid(),
+                        str_replace(array("\n", "\r"), '', $e->getMessage())
+                    );
+
+                    $mail->setStatus(99);
+
+                    $io->error($message);
+                    $this->getLogger()->log(LogLevel::ERROR, $message);
+                    $result = 1;
                 }
 
-            } else {
-                $message = 'No issues to build.';
-                $io->note($message);
-                $this->getLogger()->log(LogLevel::INFO, $message);
+                // do update
+                $this->mailRepository->update($mail);
+                $this->persistenceManager->persistAll();
             }
 
-        } catch (\Exception $e) {
 
-            $message = sprintf('An unexpected error occurred while trying to update the statistics of e-mails: %s',
-                str_replace(array("\n", "\r"), '', $e->getMessage())
-            );
+        } else {
 
-            $io->error($message);
-            $this->getLogger()->log(LogLevel::ERROR, $message);
-            $result = 1;
+            $message = 'No consent-mails to send.';
+            $io->note($message);
+            $this->getLogger()->log(LogLevel::INFO, $message);
         }
 
         $io->writeln('Done');
         return $result;
-
     }
 
 

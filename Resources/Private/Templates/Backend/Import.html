@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+
+    <f:section name="content">
+
+        <h1>
+            <f:translate key="templates_backend_import.headline" />
+        </h1>
+
+        <p class="tx_simpleconsent-description"><f:translate key="templates_backend_import.description" /></p>
+
+        <f:if condition="{mailList -> f:count()} > 0">
+            <f:form action="importSave" name="data" enctype="multipart/form-data">
+                <f:render partial="PropertiesImport" arguments="{_all}" />
+                <f:form.button><f:translate key="templates_backend_edit.save" /></f:form.button>
+            </f:form>
+        </f:if>
+        
+    </f:section>
+</html>

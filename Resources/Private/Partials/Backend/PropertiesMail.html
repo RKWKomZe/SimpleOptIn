@@ -1,0 +1,53 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+    <table class="tx_simpleconsent-list">
+        <tr>
+            <th colspan="2"><f:translate key="partials_backend_propertiesMail.headline" /></th>
+        </tr>
+        <tr>
+            <td>
+                <label for="subject">
+                    <f:translate key="tx_simpleconsent_domain_model_mail.subject" />:
+                </label>
+            </td>
+            <td>
+                <f:form.textfield
+                    property="subject"
+                    id="subject"
+                    value="{mail.subject}"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="text_plain">
+                    <f:translate key="tx_simpleconsent_domain_model_mail.text_plain" />
+                </label>
+            </td>
+            <td>
+                <p><f:translate key="templates_email_consent.salutation" /> Sam Musterperson,</p>
+                <f:form.textarea
+                    property="textPlain"
+                    id="text_plain"
+                    value="{mail.textPlain}"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="text_html">
+                    <f:translate key="tx_simpleconsent_domain_model_mail.text_html" />
+                </label>
+            </td>
+            <td>
+                <p><f:translate key="templates_email_consent.salutation" /> Sam Musterperson,</p>
+                <f:form.textarea
+                    property="textHtml"
+                    id="text_html"
+                    value="{mail.textHtml}"
+                />
+            </td>
+        </tr>
+    </table>
+</html>

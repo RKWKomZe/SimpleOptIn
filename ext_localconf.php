@@ -17,6 +17,22 @@ call_user_func(
             ]
         );
 
+
+        //=================================================================
+        // Add TypoScript automatically
+        //=================================================================
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
+            'Accelerator',
+            'constants',
+            '<INCLUDE_TYPOSCRIPT: source="FILE: EXT:simple_consent/Configuration/TypoScript/constants.typoscript">'
+        );
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
+            'Accelerator',
+            'setup',
+            '<INCLUDE_TYPOSCRIPT: source="FILE: EXT:simple_consent/Configuration/TypoScript/setup.typoscript">'
+        );
+
         //=================================================================
         // Register Logger
         //=================================================================
@@ -24,7 +40,7 @@ call_user_func(
 
             // configuration for WARNING severity, including all
             // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-            \TYPO3\CMS\Core\Log\LogLevel::INFO => [
+            \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
                 // add a FileWriter
                 'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => [
                     // configuration for the writer

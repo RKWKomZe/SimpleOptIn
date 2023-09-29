@@ -4,69 +4,254 @@
 		<header/>
 		<body>
 			<!-- tx_simpleconsent_domain_model_address -->
-            <trans-unit id="tx_simpleconsent_domain_model_address">
-                <source>SimpleConsent: Address</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender">
-                <source>Salutation</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
-                <source>Mr.</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.1">
-                <source>Mrs.</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.2">
-                <source>Mx.</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.99">
-                <source>Please Select</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.title">
-                <source>Title</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.first_name">
-                <source>First Name</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.last_name">
-                <source>Last Name</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.company">
-                <source>Company</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.address">
-                <source>Address</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.zip">
-                <source>Zip</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.city">
-                <source>City</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.phone">
-                <source>Phone</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.email">
-                <source>E-Mail</source>
-            </trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender">
+				<source>Salutation</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
+				<source>Mr.</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.1">
+				<source>Mrs.</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.2">
+				<source>Mx.</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.99">
+				<source>Please Select</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.email">
+				<source>E-Mail</source>
+			</trans-unit>
 
 
-            <!-- ConsentController -->
-            <trans-unit id="consentController.message.confirmed">
-                <source>Thank you very much for your consent.</source>
-            </trans-unit>
-            <trans-unit id="consentController.message.deleted">
-                <source>Thank you for your feedback. We will delete your personal data from our database as soon as possible.</source>
-            </trans-unit>
+			<!-- tx_simpleconsent_domain_model_mail -->
+			<trans-unit id="tx_simpleconsent_domain_model_mail.subject">
+				<source>Subject</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_plain">
+				<source>Message (Plaintext)</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html">
+				<source>Message (HTML)</source>
+			</trans-unit>
 
 
-            <!-- Template: Consent/Show.html -->
-            <trans-unit id="templates_consent.confirm">
-                <source>Confirm</source>
-            </trans-unit>
-            <trans-unit id="templates_consent.delete">
-                <source>Delete</source>
-            </trans-unit>
+			<!-- ConsentController -->
+			<trans-unit id="consentController.message.confirmed">
+				<source>Thank you very much for your consent.</source>
+			</trans-unit>
+			<trans-unit id="consentController.message.deleted">
+				<source>Thank you for your feedback. We will delete your personal data from our database as soon as possible.</source>
+			</trans-unit>
+			<trans-unit id="consentController.error.noAddressFound">
+				<source>Oops! Unfortunately, we could not find the related data. Please contact our support.</source>
+			</trans-unit>
+			<trans-unit id="consentController.error.alreadyConfirmed">
+				<source>TThank you for your feedback. You have already informed us of your decision</source>
+			</trans-unit>
+
+
+
+			<!-- MailingController -->
+			<trans-unit id="mailingController.message.saved">
+				<source>Successfully saved.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.error.noMail">
+				<source>You must first create a consent email.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.error.wrongFileType">
+				<source>The selected file is not a valid CSV file.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.error.importFailed">
+				<source>Unfortunately, the import failed: %s</source>
+			</trans-unit>
+			<trans-unit id="mailingController.warning.nothingImported">
+				<source>No records were imported.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.message.importSuccessful">
+				<source>The import was successful. Imported records:</source>
+			</trans-unit>
+			<trans-unit id="mailingController.error.invalidEmail">
+				<source>The e-mail address provided is not complete. Please check again.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.message.testMailSent">
+				<source>The e-mail was successfully sent to the test address.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.error.testMailNotSent">
+				<source>The e-mail could not be sent to the test address.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.error.pleaseReassure">
+				<source>In order for the e-mail to be finally sent, you must confirm the sending. To do this, activate the checkbox below.</source>
+			</trans-unit>
+			<trans-unit id="mailingController.message.mailSent">
+				<source>The selected email has been successfully marked for sending and will be sent shortly.</source>
+			</trans-unit>
+
+
+			<!-- Layouts/Backend/Default-->
+			<trans-unit id="layouts_backend_default.action.create">
+				<source>1. Create</source>
+			</trans-unit>
+			<trans-unit id="layouts_backend_default.action.import">
+				<source>2. Import Addresses</source>
+			</trans-unit>
+			<trans-unit id="layouts_backend_default.action.send">
+				<source>3. Send</source>
+			</trans-unit>
+			<trans-unit id="layouts_backend_default.action.prepareTest">
+				<source>3.1 Send Test-E-Mail</source>
+			</trans-unit>
+			<trans-unit id="layouts_backend_default.action.prepareSend">
+				<source>3.2 Send E-Mail finally</source>
+			</trans-unit>
+
+
+			<!-- Templates/Consent/Show.html -->
+			<trans-unit id="templates_consent.confirm">
+				<source>Confirm</source>
+			</trans-unit>
+			<trans-unit id="templates_consent.delete">
+				<source>Delete</source>
+			</trans-unit>
+
+
+			<!-- Templates/Backend/Create.html -->
+			<trans-unit id="templates_backend_create.headline">
+				<source>1. Create new consent email</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_create.description">
+				<source>Here you can create a new consent email. Enter an appropriate text for it. A plain text and an HTML version are available. The text is automatically preceded by a personalised salutation.</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_create.save">
+				<source>Save</source>
+			</trans-unit>
+
+
+			<!-- Templates/Backend/Edit.html -->
+			<trans-unit id="templates_backend_edit.headline">
+				<source>Edit consent email</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_edit.description">
+				<source>Here you can edit an existing consent email. Enter an appropriate text for it. A plain text and an HTML version are available. The text is automatically preceded by a personalised salutation.</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_edit.save">
+				<source>Save</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_edit.select">
+				<source>Currently selected</source>
+			</trans-unit>
+
+
+			<!-- Templates/Backend/Import.html -->
+			<trans-unit id="templates_backend_import.headline">
+				<source>2. Import Addresses</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_import.description">
+				<source>Here you can import a CSV list with addresses and assign it to an existing consent email.</source>
+			</trans-unit>
+
+
+			<!-- Partials/Backend/PropertiesImport.html -->
+			<trans-unit id="partials_backend_propertiesImport.subHeadline">
+				<source>Assignment of addresses to a consent email</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesImport.upload">
+				<source>CSV-File</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesImport.select">
+				<source>Consent Email</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesImport.save">
+				<source>Save</source>
+			</trans-unit>
+
+
+			<!-- Templates/Backend/PrepareTest.html -->
+			<trans-unit id="templates_backend_prepareTest.headline">
+				<source>3.1 Send test email</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_prepareTest.description">
+				<source>Here you can send a test email with the selected consent email to any email address.</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_prepareTest.send">
+				<source>Send</source>
+			</trans-unit>
+
+
+			<!-- Partials/Backend/PropertiesTest.html -->
+			<trans-unit id="partials_backend_propertiesTest.headline">
+				<source>Consent email</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesTest.select">
+				<source>Currently selected</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesTest.emailAddress">
+				<source>E-Mail</source>
+			</trans-unit>
+
+
+			<!-- Templates/Backend/PrepareSend.html -->
+			<trans-unit id="templates_backend_prepareSend.headline">
+				<source>3.2 Send email</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_prepareSend.description">
+				<source>Here you can send the selected consent email to the imported addressees.</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_prepareSend.send">
+				<source>Send</source>
+			</trans-unit>
+
+
+			<!-- Partials/Backend/PropertiesSend.html -->
+			<trans-unit id="partials_backend_propertiesSend.headline">
+				<source>Consent email</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesSend.select">
+				<source>Currently selected</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesSend.reassure">
+				<source>I am sure that the email should be sent.</source>
+			</trans-unit>
+
+
+			<!-- Partials/Backend/Mail.html -->
+			<trans-unit id="partials_backend_propertiesMail.headline">
+				<source>Consent email</source>
+			</trans-unit>
+
+
+			<!-- Template: Emails/Consent.html -->
+			<trans-unit id="templates_email_consent.salutation">
+				<source>Hallo</source>
+			</trans-unit>
+			<trans-unit id="templates_email_consent.details">
+				<source>Give consent or ask for deletion</source>
+			</trans-unit>
+
         </body>
 	</file>
 </xliff>

@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+
+    <f:section name="content">
+
+        <h1>
+            <f:translate key="templates_backend_prepareTest.headline" />
+        </h1>
+
+        <p class="tx_simpleconsent-description">
+            <f:translate key="templates_backend_prepareTest.description" />
+        </p>
+        
+        <f:form action="sendTest">
+            <f:render partial="PropertiesTest" arguments="{_all}" />
+            <f:form.button>
+                <f:translate key="templates_backend_prepareTest.send" />
+            </f:form.button>
+        </f:form>
+    </f:section>
+</html>

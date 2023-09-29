@@ -1,0 +1,5 @@
+uid;gender;title;first_name;last_name;company;address;city;zip;useless;phone;email;hash;status
+100;0;Dr.;Sabine;Mustermann;SPD;Wilhelmstraße 141;Berlin;10963;1;030 - 25991 - 500;parteivorstand@spd.de;donotimport;1
+101;1;Prof. Dr.;Matthias;Musterfrau;BÜNDNIS 90/DIE GRÜNEN;Platz vor dem Neuen Tor 1;Berlin;10115;2;49 (0)30/28442-0;info@gruene.de;donotimport;2
+102;2;;Sam;Person;FDP;Reinhardtstraße 14;Berlin-Charottenburg;10117;3;+49 30 28 49 58-0;michael.zimmermann@fdp.de;donotimport;99
+103;500;;Ching;Giskan;CDU;Klingelhöferstraße 8;Berlin-Türkis;10785;4;+ 49 30 22070-0;kah(at)cdu.de;;

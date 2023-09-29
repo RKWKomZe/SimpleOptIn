@@ -1,5 +1,4 @@
 <?php
-
 namespace Madj2k\SimpleConsent;
 
 /*
@@ -20,7 +19,7 @@ namespace Madj2k\SimpleConsent;
  *
  * @author Steffen Kroggel <developer@steffenkroggel.de>
  * @copyright Steffen Kroggel
- * @package Madj2k_FeRegister
+ * @package Madj2k_SimpleConsent
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Exception extends \Exception
