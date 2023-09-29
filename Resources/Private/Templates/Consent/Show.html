@@ -6,23 +6,29 @@
     <f:section name="main">
 
         <f:render partial="FlashMessages" arguments="{_all}" />
-        <f:render partial="Address" />
-
-        <div class="btn-list btn-list--footer">
-
-            <f:link.action
-                class="mt-1 btn btn--primary"
-                action="confirm"
-            >
-                <f:translate key="templates_consent.confirm" />
-            </f:link.action>
-
-            <f:link.action
-                class="mt-1 btn btn--secondary"
-                action="delete"
-            >
-                <f:translate key="templates_consent.delete" />
-            </f:link.action>
-        </div>
+        
+        <f:if condition="{address} && {address.status} == 1">
+            
+            <f:render partial="Frontend/Address" arguments="{_all}" />
+            
+            <div class="btn-list btn-list--footer">
+    
+                <f:link.action
+                    class="mt-1 btn btn--primary"
+                    action="confirm"
+                    arguments="{address: address}"
+                >
+                    <f:translate key="templates_consent.confirm" />
+                </f:link.action>
+    
+                <f:link.action
+                    class="mt-1 btn btn--secondary"
+                    action="delete"
+                    arguments="{address: address}"
+                >
+                    <f:translate key="templates_consent.delete" />
+                </f:link.action>
+            </div>
+        </f:if>
     </f:section>
 </html>

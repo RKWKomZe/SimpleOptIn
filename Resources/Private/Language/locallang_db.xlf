@@ -3,73 +3,106 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-12T13:49:26Z" product-name="simple_consent">
 		<header/>
 		<body>
- 			<!-- tx_simpleconsent_domain_model_address -->
-            <trans-unit id="tx_simpleconsent_domain_model_address">
-                <source>SimpleConsent: Address</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender">
-                <source>Salutation</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
-                <source>Mr.</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.1">
-                <source>Mrs.</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.2">
-                <source>Mx.</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.gender.99">
-                <source>Please Select</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.title">
-                <source>Title</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.first_name">
-                <source>First Name</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.last_name">
-                <source>Last Name</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.company">
-                <source>Company</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.address">
-                <source>Address</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.zip">
-                <source>Zip</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.city">
-                <source>City</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.phone">
-                <source>Phone</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.email">
-                <source>E-Mail</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.hash">
-                <source>Hash</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status">
-                <source>Status</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.0">
-                <source>Not yet addressed</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.1">
-                <source>Confirmation pending</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.2">
-                <source>Contact confirmed</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.3">
-                <source>Deletion requested</source>
-            </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.99">
-                <source>Deletion requested</source>
-            </trans-unit>
+ 			 <!-- tx_simpleconsent_domain_model_address -->
+			<trans-unit id="tx_simpleconsent_domain_model_address">
+				<source>SimpleConsent: Address</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
+				<source>Mr.</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.1">
+				<source>Mrs.</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.2">
+				<source>Mx.</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.gender.99">
+				<source>Please Select</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.email">
+				<source>E-Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.hash">
+				<source>Hash</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.status.0">
+				<source>Not yet addressed</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.status.1">
+				<source>Confirmation pending</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.status.2">
+				<source>Contact confirmed</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.status.3">
+				<source>Deletion requested</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.status.99">
+				<source>Error</source>
+			</trans-unit>
+
+
+			<!-- tx_simpleconsent_domain_model_mail -->
+			<trans-unit id="tx_simpleconsent_domain_model_mail">
+				<source>SimpleConsent: Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.subject">
+				<source>Subject</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_plain">
+				<source>Message (Plaintext)</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html">
+				<source>Message (HTML)</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.0">
+				<source>Draft</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.1">
+				<source>Waiting for Dispatch</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.2">
+				<source>Sending</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.3">
+				<source>Sent</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.99">
+				<source>Error</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.address">
+				<source>Addresses</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+    <table class="tx_simpleconsent-list">
+        <tr>
+            <th colspan="2"><f:translate key="partials_backend_propertiesSend.headline" /></th>
+        </tr>
+        <tr>
+            <td>
+                <label for="mailList">
+                    <f:translate key="partials_backend_propertiesSend.select" />:
+                </label>
+            </td>
+            <td>
+                <f:form.select name="mail"
+                   id="mailList"
+                   options="{mailList}"
+                   optionValueField="uid"
+                   optionLabelField="label"
+                   value="{mail}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="reassure">
+                    <f:translate key="partials_backend_propertiesSend.reassure" />
+                </label>
+            </td>
+            <td>
+                <f:form.checkbox name="reassure" value="1" />
+            </td>
+        </tr>        
+    </table>
+</html>

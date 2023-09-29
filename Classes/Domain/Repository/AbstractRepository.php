@@ -30,32 +30,4 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 class AbstractRepository extends StoragePidAwareAbstractRepository
 {
 
-    /**
-     * Really removes an object from this repository
-     *
-     * @param \TYPO3\CMS\Extbase\DomainObject\AbstractEntity $object
-     * @return int
-     * @throws \TYPO3\CMS\Extbase\Persistence\Generic\Exception
-     */
-    public function removeHard(\TYPO3\CMS\Extbase\DomainObject\AbstractEntity $object): int
-    {
-        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ObjectManager::class);
-
-        /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper $dataMapper */
-        $dataMapper = $objectManager->get(DataMapper::class);
-        $tableName = $dataMapper->getDataMap(get_class($object))->getTableName();
-
-        $connectionPool = \Madj2k\CoreExtended\Utility\GeneralUtility::makeInstance(ConnectionPool::class);
-        $queryBuilder = $connectionPool->getQueryBuilderForTable($tableName);
-        $affectedRows = $queryBuilder
-            ->delete($tableName)
-            ->where(
-                $queryBuilder->expr()->eq('uid', $object->getUid())
-            )
-            ->execute();
-
-        return intval($affectedRows);
-    }
-
 }

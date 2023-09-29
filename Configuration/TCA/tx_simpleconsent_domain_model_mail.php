@@ -2,9 +2,7 @@
 return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail',
-        'label' => 'last_name',
-        'label_alt' => 'first_name, company, address, zip, city',
-        'label_alt_force' => 1,
+        'label' => 'subject',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -13,14 +11,14 @@ return [
         'enablecolumns' => [
             'disabled' => 'hidden',
         ],
-        'searchFields' => ' first_name,last_name,address,zip,city,email,phone',
+        'searchFields' => 'subject, text_plain, text_html, status',
         'iconfile' => 'EXT:simple_consent/Resources/Public/Icons/tx_simpleconsent_domain_model_mail.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'hidden, title, text_plain, text_html',
+        'showRecordFieldList' => 'hidden, subject, text_plain, text_html',
     ],
     'types' => [
-        '1' => ['showitem' => 'hidden,--palette--;;1, text_plain, text_html, status'],
+        '1' => ['showitem' => 'hidden,--palette--;;1, subject, text_plain, text_html, status'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -35,10 +33,8 @@ return [
                 'type' => 'check',
             ],
         ],
-
-
-        'title' => [
-            'label'=>'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.title',
+        'subject' => [
+            'label'=>'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.subject',
             'exclude' => 0,
             'config' => [
                 'type' => 'input',
@@ -46,22 +42,25 @@ return [
                 'eval' => 'trim'
             ],
         ],
-        'first_name' => [
+        'text_plain' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.first_name',
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.text_plain',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
+                'type' => 'text',
+                'cols' => '40',
+                'rows' => '15',
+                'eval' => 'trim',
             ],
         ],
-        'last_name' => [
+        'text_html' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.last_name',
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.text_html',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
+                'type' => 'text',
+                'cols' => '40',
+                'rows' => '15',
+                'eval' => 'trim',
+                'enableRichtext' => true
             ],
         ],
         'status' => [
@@ -77,8 +76,28 @@ return [
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status.0', '0'],
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status.1', '1'],
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status.2', '2'],
+                    ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status.2', '3'],
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status.99', '99'],
                 ],
+            ],
+        ],
+        'addresses' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.address',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'size' => 5,
+                'foreign_table' => 'tx_simpleconsent_domain_model_address',
+                'foreign_table_where' => 'AND status = 0 ORDER BY email ASC, crdate ASC',
+                'minitems' => 1,
+                'maxitems' => 999999999,
+            ]
+        ],
+        'queue_mail' => [
+            'config' => [
+                'type' => 'passthrough',
+                'foreign_table' => 'tx_postmaster_domain_model_queuemail',
             ],
         ],
     ],

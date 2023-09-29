@@ -3,11 +3,10 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-06-12T13:49:26Z" product-name="simple_consent">
 		<header/>
 		<body>
-
             <!-- tx_simpleconsent_domain_model_address -->
             <trans-unit id="tx_simpleconsent_domain_model_address">
 				<source>SimpleConsent: Address</source>
-				<target>SimpleConsent: Addresse</target>
+				<target>SimpleConsent: Adresse</target>
 			</trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.gender.0">
                 <source>Mr.</source>
@@ -86,8 +85,55 @@
                 <target>Löschung gewünscht</target>
             </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.99">
-                <source>Deletion requested</source>
-                <target>Löschung gewünscht</target>
+                <source>Error</source>
+                <target>Fehler</target>
+            </trans-unit>
+
+
+            <!-- tx_simpleconsent_domain_model_mail -->
+            <trans-unit id="tx_simpleconsent_domain_model_mail">
+				<source>SimpleConsent: Mail</source>
+				<target>SimpleConsent: Mail</target>
+			</trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.subject">
+				<source>Subject</source>
+				<target>Betreff</target>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_plain">
+				<source>Message (Plaintext)</source>
+				<target>Nachricht (Plaintext)</target>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html">
+				<source>Message (HTML)</source>
+				<target>Nachricht (HTML)</target>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status">
+                <source>Status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.0">
+                <source>Draft</source>
+                <target>Entwurf</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.1">
+                <source>Waiting for Dispatch</source>
+                <target>Wartet auf Versand</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.2">
+                <source>Sending</source>
+                <target>Senden läuft</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.3">
+                <source>Sent</source>
+                <target>Versendet</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.99">
+                <source>Error</source>
+                <target>Fehler</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.address">
+                <source>Addresses</source>
+                <target>Adressen</target>
             </trans-unit>
         </body>
 	</file>

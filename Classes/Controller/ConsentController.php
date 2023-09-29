@@ -14,9 +14,11 @@ namespace Madj2k\SimpleConsent\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Madj2k\CoreExtended\Utility\GeneralUtility;
 use Madj2k\SimpleConsent\Domain\Model\Address;
 use Madj2k\SimpleConsent\Domain\Repository\AddressRepository;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -27,7 +29,7 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  * @package Madj2k_SimpleConsent
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ConsentController extends AbstractController
+class ConsentController extends ActionController
 {
 
     /**
@@ -45,8 +47,46 @@ class ConsentController extends AbstractController
      */
     public function showAction(string $hash): void
     {
-         $address = $this->addressRepository->findByHash($hash);
-         $this->view->assignMultiple(
+
+        if ($hash == 'abcdefghijklmnopqrstuvwxyz1234') {
+            $address = GeneralUtility::makeInstance(Address::class);
+            $address->setTitle('Dr.');
+            $address->setGender(3);
+            $address->setFirstName('Sam');
+            $address->setLastName('Muster');
+            $address->setCompany('Muster Inc.');
+            $address->setAddress('Testallee 15');
+            $address->setZip('12345');
+            $address->setCity('Testhausen');
+            $address->setPhone('1234 / 123456');
+            $address->setEmail('sam@muster.com');
+        } else {
+            $address = $this->addressRepository->findOneByHash($hash);
+        }
+
+        if (! $address) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'consentController.error.noAddressFound',
+                    'simple_consent'
+                ),
+                '',
+                AbstractMessage::ERROR
+            );
+        }
+
+        if ($address->getStatus() > 1) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'consentController.error.alreadyConfirmed',
+                    'simple_consent'
+                ),
+                '',
+                AbstractMessage::WARNING
+            );
+        }
+
+        $this->view->assignMultiple(
             [
                 'address' => $address
             ]
@@ -59,6 +99,8 @@ class ConsentController extends AbstractController
      *
      * @param \Madj2k\SimpleConsent\Domain\Model\Address $address
      * @return void
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      */
     public function confirmAction(Address $address) : void
     {
@@ -68,7 +110,7 @@ class ConsentController extends AbstractController
         $this->addFlashMessage(
             LocalizationUtility::translate(
                 'consentController.message.confirmed',
-                'simple_optin'
+                'simple_consent'
             ),
             '',
             AbstractMessage::OK
@@ -81,6 +123,8 @@ class ConsentController extends AbstractController
      *
      * @param \Madj2k\SimpleConsent\Domain\Model\Address $address
      * @return void
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      */
     public function deleteAction(Address $address) : void
     {
@@ -90,7 +134,7 @@ class ConsentController extends AbstractController
         $this->addFlashMessage(
             LocalizationUtility::translate(
                 'consentController.message.deleted',
-                'simple_optin'
+                'simple_consent'
             ),
             '',
             AbstractMessage::OK

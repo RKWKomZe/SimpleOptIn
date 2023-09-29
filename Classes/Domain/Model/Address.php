@@ -25,7 +25,7 @@ namespace Madj2k\SimpleConsent\Domain\Model;
  */
 class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    
+
     /**
      * @var int
      */
@@ -67,7 +67,7 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected string $zip = '';
 
-    
+
     /**
      * @var string
      */
@@ -302,7 +302,7 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->phone = $phone;
     }
-    
+
 
     /**
      * Returns email
@@ -326,7 +326,7 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->email = $email;
     }
 
-    
+
     /**
      * Returns hash
      *
@@ -371,5 +371,6 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->status = $status;
     }
+
 
 }

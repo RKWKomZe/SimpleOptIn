@@ -20,6 +20,26 @@ plugin.tx_simpleconsent {
 
 	settings {
 
+        # cat=plugin.tx_simpleconsent//a; type=int; label=Pid of the plugin for the consent
+        consentPid =
+	}
+}
 
+
+module.tx_simpleconsent {
+
+	settings < plugin.tx_simpleconsent.settings
+	persistence < plugin.tx_simpleconsent.persistence
+	view < plugin.tx_simpleconsent.view
+
+	view {
+		# cat=module.tx_simpleconsent/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:simple_consent/Resources/Private/Templates/Backend/
+
+		# cat=module.tx_simpleconsent/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:simple_consent/Resources/Private/Partials/Backend/
+
+		# cat=module.tx_simpleconsent/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:simple_consent/Resources/Private/Layouts/Backend/
 	}
 }

@@ -6,12 +6,37 @@ call_user_func(
     {
 
         //=================================================================
+        // Register BackendModule
+        //=================================================================
+        if (TYPO3_MODE === 'BE') {
+
+            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+                'Madj2k.' . $extKey,
+                'tools',	 		// Make module a submodule of 'tools'
+                'management',		// Submodule key
+                '',					// Position
+                array(
+                    'Mailing' => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send',
+                ),
+                array(
+                    'access' => 'user,group',
+                    'icon'   => 'EXT:' . $extKey . '/ext_icon.gif',
+                    'labels' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_backend.xlf',
+                )
+            );
+        }
+
+
+        //=================================================================
         // Add tables
         //=================================================================
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
             'tx_simpleconsent_domain_model_address'
         );
 
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
+            'tx_simpleconsent_domain_model_mail'
+        );
 
     },
     $_EXTKEY
