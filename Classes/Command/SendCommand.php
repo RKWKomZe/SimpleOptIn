@@ -250,6 +250,7 @@ class SendCommand extends Command
 
                     $mail->setStatus(99);
 
+                    // @extensionScannerIgnoreLine
                     $io->error($message);
                     $this->getLogger()->log(LogLevel::ERROR, $message);
                     $result = 1;
