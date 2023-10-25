@@ -99,6 +99,18 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
+     * @var int
+     */
+    protected int $feedbackTstamp = 0;
+
+
+    /**
+     * @var string
+     */
+    protected string $feedbackIp = '';
+
+
+    /**
      * Returns gender
      *
      * @return int $gender
@@ -353,9 +365,9 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns status
      *
-     * @return string
+     * @return int
      */
-    public function getStatus(): string
+    public function getStatus(): int
     {
         return $this->status;
     }
@@ -364,13 +376,58 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets status
      *
-     * @param string $status
+     * @param int $status
      * @return void
      */
-    public function setStatus(string $status): void
+    public function setStatus(int $status): void
     {
         $this->status = $status;
     }
 
+
+    /**
+     * Returns feedbackTstamp
+     *
+     * @return int
+     */
+    public function getFeedbackTstamp(): int
+    {
+        return $this->feedbackTstamp;
+    }
+
+
+    /**
+     * Sets feedbackTstamp
+     *
+     * @param int $feedbackTstamp
+     * @return void
+     */
+    public function setFeedbackTstamp(int $feedbackTstamp): void
+    {
+        $this->feedbackTstamp = $feedbackTstamp;
+    }
+
+
+    /**
+     * Returns feedbackIp
+     *
+     * @return string
+     */
+    public function getFeedbackIp(): string
+    {
+        return $this->feedbackIp;
+    }
+
+
+    /**
+     * Sets feedbackIp
+     *
+     * @param string $feedbackIp
+     * @return void
+     */
+    public function setFeedbackIp(string $feedbackIp): void
+    {
+        $this->feedbackIp = $feedbackIp;
+    }
 
 }

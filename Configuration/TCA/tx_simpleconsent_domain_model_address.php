@@ -17,10 +17,10 @@ return [
         'iconfile' => 'EXT:simple_consent/Resources/Public/Icons/tx_simpleconsent_domain_model_address.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'hidden, title, gender, company, first_name, last_name, address, zip, city',
+        'showRecordFieldList' => 'hidden, title, gender, company, first_name, last_name, address, zip, city, email, phone, status, feedback_tstamp, feedback_ip',
     ],
     'types' => [
-        '1' => ['showitem' => 'hidden,--palette--;;1, title, gender, company, first_name, last_name, address, zip, city, email, phone, status, sent'],
+        '1' => ['showitem' => 'hidden,--palette--;;1, title, gender, company, first_name, last_name, address, zip, city, email, phone, status, feedback_tstamp, feedback_ip'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -161,6 +161,30 @@ return [
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status.99', '99'],
                 ],
             ],
+            'feedback_tstamp' => [
+                'exclude' => 0,
+                'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.feedback_tstamp',
+                'config' => [
+                    'type'    => 'input',
+                    'renderType' => 'inputDateTime',
+                    'size'    => 13,
+                    'eval'    => 'datetime',
+                    'default' => 0,
+                    'behaviour' => [
+                        'allowLanguageSynchronization' => true
+                    ]
+                ],
+            ],
+            'feedback_ip' => [
+                'exclude' => 0,
+                'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.feedback_ip',
+                'config' => [
+                    'type' => 'input',
+                    'size' => 30,
+                    'eval' => 'trim'
+                ],
+            ],
+
         ],
     ],
 ];

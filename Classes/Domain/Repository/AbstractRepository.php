@@ -15,9 +15,6 @@ namespace Madj2k\SimpleConsent\Domain\Repository;
  */
 
 use Madj2k\CoreExtended\Domain\Repository\StoragePidAwareAbstractRepository;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 
 /**
  * AbstractRepository

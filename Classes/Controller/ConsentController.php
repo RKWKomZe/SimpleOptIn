@@ -14,6 +14,7 @@ namespace Madj2k\SimpleConsent\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Madj2k\CoreExtended\Utility\ClientUtility;
 use Madj2k\CoreExtended\Utility\GeneralUtility;
 use Madj2k\SimpleConsent\Domain\Model\Address;
 use Madj2k\SimpleConsent\Domain\Repository\AddressRepository;
@@ -105,6 +106,9 @@ class ConsentController extends ActionController
     public function confirmAction(Address $address) : void
     {
         $address->setStatus(2);
+        $address->setFeedbackTstamp(time());
+        $address->setFeedbackIp(ClientUtility::getIp());
+
         $this->addressRepository->update($address);
 
         $this->addFlashMessage(
@@ -129,6 +133,9 @@ class ConsentController extends ActionController
     public function deleteAction(Address $address) : void
     {
         $address->setStatus(3);
+        $address->setFeedbackTstamp(time());
+        $address->setFeedbackIp(ClientUtility::getIp());
+
         $this->addressRepository->update($address);
 
         $this->addFlashMessage(
