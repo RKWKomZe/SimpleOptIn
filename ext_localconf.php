@@ -51,5 +51,5 @@ call_user_func(
 
 
     },
-    $_EXTKEY
+    'simple_consent'
 );

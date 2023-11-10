@@ -9,7 +9,7 @@ call_user_func(
         // Register Plugins
         //=================================================================
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-            'Madj2k.SimpleConsent',
+            $extKey,
             'Consent',
             'SimpleConsent: Show / Confirm / Delete'
         );
