@@ -11,18 +11,18 @@ call_user_func(
         if (TYPO3_MODE === 'BE') {
 
             \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-                'Madj2k.' . $extKey,
+                $extKey,
                 'tools',	 		// Make module a submodule of 'tools'
                 'management',		// Submodule key
                 '',					// Position
-                array(
-                    'Mailing' => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send',
-                ),
-                array(
+                [
+                    \Madj2k\SimpleConsent\Controller\MailingController::class => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send',
+                ],
+                [
                     'access' => 'user,group',
                     'icon'   => 'EXT:' . $extKey . '/ext_icon.gif',
                     'labels' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_backend.xlf',
-                )
+                ]
             );
         }
 
@@ -39,6 +39,6 @@ call_user_func(
         );
 
     },
-    $_EXTKEY
+    'simple_consent'
 );
 
