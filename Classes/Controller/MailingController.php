@@ -206,10 +206,8 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $result = [];
         try {
 
-            $csvImporter = $this->objectManager->get(
-                CsvImporter::class,
-                'tx_simpleconsent_domain_model_address'
-            );
+            $csvImporter = $this->objectManager->get(CsvImporter::class);
+            $csvImporter->setTableName('tx_simpleconsent_domain_model_address');
 
             // init importer and do some basic setup
             $csvImporter->readCsv($filePath);
