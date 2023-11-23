@@ -11,12 +11,12 @@ call_user_func(
         if (TYPO3_MODE === 'BE') {
 
             \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-                $extKey,
+                'Madj2k.' . $extKey,
                 'tools',	 		// Make module a submodule of 'tools'
                 'management',		// Submodule key
                 '',					// Position
                 [
-                    \Madj2k\SimpleConsent\Controller\MailingController::class => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send',
+                    'Mailing' => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send, prepareReminder, reminder',
                 ],
                 [
                     'access' => 'user,group',

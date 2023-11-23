@@ -18,7 +18,7 @@ return [
         'showRecordFieldList' => 'hidden, subject, text_plain, text_html',
     ],
     'types' => [
-        '1' => ['showitem' => 'hidden,--palette--;;1, subject, text_plain, text_html, status'],
+        '1' => ['showitem' => 'hidden,--palette--;;1, subject, text_plain, text_html, status, reminder'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -80,6 +80,13 @@ return [
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status.99', '99'],
                 ],
             ],
+        ],
+        'reminder' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.reminder',
+            'config' => [
+                'type' => 'check',
+            ]
         ],
         'addresses' => [
             'exclude' => 0,

@@ -463,18 +463,6 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function sendAction(Mail $mail, int $reassure = 0): void
     {
-        $mailList = $this->mailRepository->findByStatus(1);
-        if (! count($mailList)) {
-            $this->addFlashMessage(
-                LocalizationUtility::translate(
-                    'mailingController.error.noMail',
-                    'simple_consent'
-                ),
-                '',
-                FlashMessage::ERROR
-            );
-        }
-
         if (! $reassure) {
 
             $this->addFlashMessage(
@@ -490,6 +478,79 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         }
 
+        $mail->setStatus(2);
+        $this->mailRepository->update($mail);
+        $this->persistenceManager->persistAll();
+
+        $this->addFlashMessage(
+            LocalizationUtility::translate(
+                'mailingController.message.mailSent',
+                'simple_consent',
+            ),
+            '',
+            AbstractMessage::OK
+        );
+
+        $this->forward('create');
+    }
+
+
+    /**
+     * Prepare reminder
+     *
+     * @param \Madj2k\SimpleConsent\Domain\Model\Mail|null $mail
+     * @return void
+     */
+    public function prepareReminderAction(Mail $mail = null): void
+    {
+        $mailList = $this->mailRepository->findByStatus(3);
+        if (! count($mailList)) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'mailingController.error.noMail',
+                    'simple_consent'
+                ),
+                '',
+                FlashMessage::ERROR
+            );
+        }
+
+        $this->view->assignMultiple(
+            [
+                'mail' => $mail,
+                'mailList' => $mailList
+            ]
+        );
+    }
+
+
+    /**
+     * Prepare reminder
+     *
+     * @param \Madj2k\SimpleConsent\Domain\Model\Mail|null $mail
+     * @param int $reassure
+     * @return void
+     * @throws StopActionException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
+     */
+    public function sendReminder(Mail $mail, int $reassure = 0): void
+    {
+        if (! $reassure) {
+
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'mailingController.error.pleaseReassure',
+                    'simple_consent'
+                ),
+                '',
+                FlashMessage::ERROR
+            );
+
+            $this->forward('prepareReminder');
+        }
+
+        $mail->setReminder(1);
         $mail->setStatus(2);
         $this->mailRepository->update($mail);
         $this->persistenceManager->persistAll();
