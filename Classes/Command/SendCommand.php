@@ -166,10 +166,10 @@ class SendCommand extends Command
                         )->execute();
 
                     // is there already a queueMail set?
-                    if ($mail->getQueueMail()) {
+                    if ($mail->getQueueMail()){
                         $this->mailMessage->setQueueMail($mail->getQueueMail());
 
-                        // if not, create one with active pipelining
+                    // if not, create one with active pipelining
                     } else {
                         $this->mailMessage->startPipelining();
                         $mail->setQueueMail($this->mailMessage->getQueueMail());

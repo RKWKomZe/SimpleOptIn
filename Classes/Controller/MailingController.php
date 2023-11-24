@@ -525,7 +525,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 
     /**
-     * Prepare reminder
+     * Send reminder
      *
      * @param \Madj2k\SimpleConsent\Domain\Model\Mail|null $mail
      * @param int $reassure
@@ -534,7 +534,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      */
-    public function sendReminder(Mail $mail, int $reassure = 0): void
+    public function reminderAction(Mail $mail, int $reassure = 0): void
     {
         if (! $reassure) {
 
@@ -550,6 +550,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->forward('prepareReminder');
         }
 
+        $mail->unsetQueueMail();
         $mail->setReminder(1);
         $mail->setStatus(2);
         $this->mailRepository->update($mail);

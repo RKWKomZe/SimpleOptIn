@@ -245,7 +245,7 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function setReminder(int $reminder): void
     {
-        $this->status = $reminder;
+        $this->reminder = $reminder;
     }
 
 
@@ -257,6 +257,17 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function getQueueMail(): ?QueueMail
     {
         return $this->queueMail;
+    }
+
+
+    /**
+     * Unsets queueMail
+     *
+     * @return void
+     */
+    public function unsetQueueMail(): void
+    {
+        $this->queueMail = null;
     }
 
 
