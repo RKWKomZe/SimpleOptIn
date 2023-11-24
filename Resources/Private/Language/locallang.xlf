@@ -128,6 +128,9 @@
 			<trans-unit id="layouts_backend_default.action.prepareSend">
 				<source>3.2 Send E-Mail finally</source>
 			</trans-unit>
+			<trans-unit id="layouts_backend_default.action.prepareReminder">
+				<source>3.3 Send Reminder</source>
+			</trans-unit>
 
 
 			<!-- Templates/Consent/Show.html -->
@@ -235,6 +238,30 @@
 			</trans-unit>
 			<trans-unit id="partials_backend_propertiesSend.reassure">
 				<source>I am sure that the email should be sent.</source>
+			</trans-unit>
+
+
+            <!-- Templates/Backend/PrepareReminder.html -->
+			<trans-unit id="templates_backend_prepareReminder.headline">
+				<source>3.3 Send reminder</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_prepareReminder.description">
+				<source>Here you can send the selected consent email as reminder to the imported addresses. Only those persons who have not yet responded to the last e-mail will be contacted again.</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_prepareReminder.send">
+				<source>Send</source>
+			</trans-unit>
+
+
+			<!-- Partials/Backend/PropertiesReminder.html -->
+			<trans-unit id="partials_backend_propertiesReminder.headline">
+				<source>Consent email</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesReminder.select">
+				<source>Currently selected</source>
+			</trans-unit>
+			<trans-unit id="partials_backend_propertiesReminder.reassure">
+				<source>I am sure that the email should be sent as reminder again.</source>
 			</trans-unit>
 
 

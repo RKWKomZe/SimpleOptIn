@@ -179,13 +179,14 @@ class SendCommand extends Command
                     if ($addressesList = $statement->fetchColumn()) {
 
                         // now load the addresses
+                        $addressStatus = ($mail->getReminder() ? 1 : 0);
                         $queryBuilder = $connectionPool->getQueryBuilderForTable('tx_simpleconsent_domain_model_address');
                         $statement = $queryBuilder->select('*')
                             ->from('tx_simpleconsent_domain_model_address')
                             ->where(
                                 $queryBuilder->expr()->eq(
                                     'status',
-                                    $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)
+                                    $queryBuilder->createNamedParameter($addressStatus, \PDO::PARAM_INT)
                                 ),
                                 $queryBuilder->expr()->in(
                                     'uid',

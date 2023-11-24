@@ -58,6 +58,11 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected int $status = 0;
 
+    /**
+     * @var int
+     */
+    protected int $reminder = 0;
+
 
     /**
      * @var \Madj2k\Postmaster\Domain\Model\QueueMail|null
@@ -201,9 +206,9 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns status
      *
-     * @return string
+     * @return int
      */
-    public function getStatus(): string
+    public function getStatus(): int
     {
         return $this->status;
     }
@@ -212,12 +217,35 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets status
      *
-     * @param string $status
+     * @param int $status
      * @return void
      */
-    public function setStatus(string $status): void
+    public function setStatus(int $status): void
     {
         $this->status = $status;
+    }
+
+
+    /**
+     * Returns reminder
+     *
+     * @return string
+     */
+    public function getReminder(): string
+    {
+        return $this->reminder;
+    }
+
+
+    /**
+     * Sets reminder
+     *
+     * @param int $reminder
+     * @return void
+     */
+    public function setReminder(int $reminder): void
+    {
+        $this->status = $reminder;
     }
 
 
