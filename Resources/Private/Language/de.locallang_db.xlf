@@ -135,6 +135,11 @@
                 <source>Addresses</source>
                 <target>Adressen</target>
             </trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.reminder">
+                <source>Send reminder</source>
+                <target>Erinnerung versenden</target>
+            </trans-unit>
+
         </body>
 	</file>
 </xliff>

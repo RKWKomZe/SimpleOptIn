@@ -103,6 +103,9 @@
 			<trans-unit id="tx_simpleconsent_domain_model_mail.address">
 				<source>Addresses</source>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.reminder">
+                <source>Send reminder</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>
