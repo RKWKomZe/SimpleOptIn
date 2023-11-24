@@ -261,6 +261,17 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
+     * Unsets queueMail
+     *
+     * @return void
+     */
+    public function unsetQueueMail(): void
+    {
+        $this->queueMail = null;
+    }
+
+
+    /**
      * Sets queueMail
      *
      * @param \Madj2k\Postmaster\Domain\Model\QueueMail $queueMail

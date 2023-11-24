@@ -550,6 +550,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->forward('prepareReminder');
         }
 
+        $mail->unsetQueueMail();
         $mail->setReminder(1);
         $mail->setStatus(2);
         $this->mailRepository->update($mail);
