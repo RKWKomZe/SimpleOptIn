@@ -52,7 +52,7 @@ class ConsentController extends ActionController
         if ($hash == 'abcdefghijklmnopqrstuvwxyz1234') {
             $address = GeneralUtility::makeInstance(Address::class);
             $address->setTitle('Dr.');
-            $address->setGender(3);
+            $address->setGender(2);
             $address->setFirstName('Sam');
             $address->setLastName('Muster');
             $address->setCompany('Muster Inc.');
@@ -61,6 +61,7 @@ class ConsentController extends ActionController
             $address->setCity('Testhausen');
             $address->setPhone('1234 / 123456');
             $address->setEmail('sam@muster.com');
+            $address->setStatus(1);
         } else {
             $address = $this->addressRepository->findOneByHash($hash);
         }
@@ -87,6 +88,9 @@ class ConsentController extends ActionController
             );
         }
 
+        /**
+         * @see https://stackoverflow.com/questions/40640638/assign-non-persisted-object-to-view-using-extbase
+         */
         $this->view->assignMultiple(
             [
                 'address' => $address

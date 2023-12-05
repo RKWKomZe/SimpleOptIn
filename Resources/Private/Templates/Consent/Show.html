@@ -13,21 +13,33 @@
             
             <div class="btn-list btn-list--footer">
     
-                <f:link.action
-                    class="mt-1 btn btn--primary"
-                    action="confirm"
-                    arguments="{address: address}"
-                >
-                    <f:translate key="templates_consent.confirm" />
-                </f:link.action>
-    
-                <f:link.action
-                    class="mt-1 btn btn--secondary"
-                    action="delete"
-                    arguments="{address: address}"
-                >
-                    <f:translate key="templates_consent.delete" />
-                </f:link.action>
+                <f:if condition="{address.uid}">
+                    <f:then>
+                        <f:link.action
+                            class="mt-1 btn btn--secondary"
+                            action="delete"
+                            arguments="{address: address}">
+                            <f:translate key="templates_consent.delete" />
+                        </f:link.action>
+                        <f:link.action
+                            class="mt-1 btn btn--primary"
+                            action="confirm"
+                            arguments="{address: address}">
+                            <f:translate key="templates_consent.confirm" />
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                        <a href="#"
+                           class="mt-1 btn btn--secondary">
+                            <f:translate key="templates_consent.delete" />
+                        </a>
+                        <a href="#"
+                           class="mt-1 btn btn--primary">
+                            <f:translate key="templates_consent.confirm" />
+                        </a>                        
+                    </f:else>
+                </f:if>
+                
             </div>
         </f:if>
     </f:section>

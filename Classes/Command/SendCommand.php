@@ -172,7 +172,10 @@ class SendCommand extends Command
                     // if not, create one with active pipelining
                     } else {
                         $this->mailMessage->startPipelining();
-                        $mail->setQueueMail($this->mailMessage->getQueueMail());
+                        $queueMail = $this->mailMessage->getQueueMail();
+                        /** @todo make this dynamic */
+                        $queueMail->setSettingsPid(1);
+                        $mail->setQueueMail($queueMail);
                     }
 
                     $recipientCnt = 0;
