@@ -7,7 +7,7 @@
     <!-- PLAINTEXT -->
     <f:section name="Plaintext"><postmaster:email.plaintextLineBreaks>
         <postmaster:email.recipientSalutation queueRecipient="{queueRecipient}"
-              prependText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')}, "
+              prependText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')} "
               appendText="!"
               fallbackText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey='{queueRecipient.languageCode}', extensionName:'simpleConsent)}!"
         />\n\n
@@ -25,7 +25,7 @@
     <f:section name="Html">
         <h1>
             <postmaster:email.recipientSalutation queueRecipient="{queueRecipient}"
-                  prependText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')}, "
+                  prependText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')} "
                   appendText="!"
                   fallbackText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey='{queueRecipient.languageCode}', extensionName:'simpleConsent)}!"
             />

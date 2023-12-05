@@ -73,6 +73,8 @@ class MailService implements \TYPO3\CMS\Core\SingletonInterface
                 true
             );
 
+            /** @todo make this dynamic */
+            $mailMessage->getQueueMail()->setSettingsPid(1);
 
             $mailMessage->getQueueMail()->setSubject($mail->getSubject());
             $mailMessage->getQueueMail()->addTemplatePaths($settings['view']['templateRootPaths']);
