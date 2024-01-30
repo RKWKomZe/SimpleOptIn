@@ -14,7 +14,7 @@
         <f:if condition="{mailList -> f:count()} > 0">
             <f:form action="importSave" name="data" enctype="multipart/form-data">
                 <f:render partial="PropertiesImport" arguments="{_all}" />
-                <f:form.button><f:translate key="templates_backend_edit.save" /></f:form.button>
+                <f:form.button class="btn btn-primary"><f:translate key="templates_backend_edit.save" /></f:form.button>
             </f:form>
         </f:if>
         

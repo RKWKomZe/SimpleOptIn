@@ -1,0 +1,39 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <type>array</type>
+                <el>
+                    <settings.textAbove>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:flexform.textAbove
+                            </label>
+                            <config>
+                                <type>text</type>
+                                <cols>24</cols>
+                                <rows>3</rows>
+                                <enableRichtext>true</enableRichtext>
+                            </config>
+                        </TCEforms>
+                    </settings.textAbove>
+                    <settings.textBelow>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:flexform.textBelow
+                            </label>
+                            <config>
+                                <type>text</type>
+                                <cols>24</cols>
+                                <rows>3</rows>
+                                <enableRichtext>true</enableRichtext>
+                            </config>
+                        </TCEforms>
+                    </settings.textBelow>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
+
+

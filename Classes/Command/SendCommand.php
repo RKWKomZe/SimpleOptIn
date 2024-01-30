@@ -105,8 +105,9 @@ class SendCommand extends Command
      *
      * @param \Symfony\Component\Console\Input\InputInterface $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @see \Symfony\Component\Console\Input\InputInterface::bind()
+     * @throws \TYPO3\CMS\Extbase\Object\Exception
      * @see \Symfony\Component\Console\Input\InputInterface::validate()
+     * @see \Symfony\Component\Console\Input\InputInterface::bind()
      */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
@@ -173,8 +174,7 @@ class SendCommand extends Command
                     } else {
                         $this->mailMessage->startPipelining();
                         $queueMail = $this->mailMessage->getQueueMail();
-                        /** @todo make this dynamic */
-                        $queueMail->setSettingsPid(1);
+                        $queueMail->setSettingsPid($mail->getPluginPid());
                         $mail->setQueueMail($queueMail);
                     }
 
@@ -230,6 +230,11 @@ class SendCommand extends Command
                     if ($recipientCnt == 0) {
                         $this->mailMessage->stopPipelining();
                         $mail->setStatus(3);
+                        if ($mail->getReminder()) {
+                            $mail->setReminderTstamp(time());
+                        } else {
+                            $mail->setSentTstamp(time());
+                        }
 
                         $message = sprintf('Mailing finished for consent-mail with uid %s.', $mail->getUid());
                         $io->note($message);

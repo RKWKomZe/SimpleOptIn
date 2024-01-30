@@ -2,14 +2,25 @@
     data-namespace-typo3-fluid="true">
 
     <table class="responsive-table responsive-table--colored">
-        <f:if condition="{address.gender}">
-            <tr>
-                <th><f:translate key="tx_simpleconsent_domain_model_address.gender" />:</th>
-                <td>
-                    <f:translate key="tx_simpleconsent_domain_model_address.gender.{address.gender}" />
-                </td>
-            </tr>
-        </f:if>
+        <tr>
+            <th>&nbsp;</th>
+            <th><f:translate key="partials_frontend_address.stored" /></th>
+            <th><f:translate key="partials_frontend_address.correction" /></th>
+        </tr>
+        <tr>
+            <th><f:translate key="tx_simpleconsent_domain_model_address.gender" />:</th>
+            <td><f:translate key="tx_simpleconsent_domain_model_address.gender.{address.gender}" /></td>
+            <td class="form__field">
+                <f:form.select property="gender"
+                               class="select-field"
+                               options="{
+                                    '99': '{f:translate(key:\'tx_simpleconsent_domain_model_address.gender.99\')}',
+                                    '0': '{f:translate(key:\'tx_simpleconsent_domain_model_address.gender.0\')}', 
+                                    '1': '{f:translate(key:\'tx_simpleconsent_domain_model_address.gender.1\')}',
+                                    '2': '{f:translate(key:\'tx_simpleconsent_domain_model_address.gender.2\')}'
+                               }" value="{addressNew.gender}" />
+            </td>
+        </tr>
 
         <f:for each="{
                 'title': 'title', 
@@ -21,13 +32,14 @@
                 'city': 'city', 
                 'phone': 'phone', 
                 'email': 'email'
-            }" as="field" key="key">
+            }" as="property" key="field">
             
-            <f:if condition="{address.{field}}">
+            <f:if condition="{address.{property}}">
                 <tr>
-                    <th><f:translate key="tx_simpleconsent_domain_model_address.{key}" />:</th>
-                    <td>
-                        {address.{field}}
+                    <th><f:translate key="tx_simpleconsent_domain_model_address.{field}" />:</th>
+                    <td>{address.{property}}</td>
+                    <td class="form__field">
+                        <f:form.textfield property="{property}" value="{addressNew.{property}}" />
                     </td>
                 </tr>
             </f:if>

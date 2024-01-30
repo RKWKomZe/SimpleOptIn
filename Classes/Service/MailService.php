@@ -30,7 +30,6 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 class MailService implements \TYPO3\CMS\Core\SingletonInterface
 {
 
-
     /**
      * Handles Consent Mail
      *
@@ -73,9 +72,7 @@ class MailService implements \TYPO3\CMS\Core\SingletonInterface
                 true
             );
 
-            /** @todo make this dynamic */
-            $mailMessage->getQueueMail()->setSettingsPid(1);
-
+            $mailMessage->getQueueMail()->setSettingsPid($mail->getPluginPid());
             $mailMessage->getQueueMail()->setSubject($mail->getSubject());
             $mailMessage->getQueueMail()->addTemplatePaths($settings['view']['templateRootPaths']);
             $mailMessage->getQueueMail()->setPlaintextTemplate('Email/Consent');

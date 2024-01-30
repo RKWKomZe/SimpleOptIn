@@ -62,6 +62,10 @@
 
 
  			<!-- tx_simpleconsent_domain_model_mail -->
+			<trans-unit id="tx_simpleconsent_domain_model_mail.plugin_pid">
+				<source>PID of Plugin</source>
+				<target>Seiten-ID des Plugins</target>
+			</trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_mail.subject">
 				<source>Subject</source>
 				<target>Betreff</target>
@@ -74,6 +78,26 @@
 				<source>Message (HTML)</source>
 				<target>Nachricht (HTML)</target>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.0">
+                <source>Draft</source>
+                <target>Entwurf</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.1">
+                <source>Waiting for Dispatch</source>
+                <target>Wartet auf Versand</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.2">
+                <source>Sending</source>
+                <target>Senden läuft</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.3">
+                <source>Sent</source>
+                <target>Versendet</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.99">
+                <source>Error</source>
+                <target>Fehler</target>
+            </trans-unit>
 
 
             <!-- ConsentController -->
@@ -90,10 +114,16 @@
 				<target>Upps! Leider konnten wir die zugehörigen Daten nicht finden. Bitte kontaktieren Sie unseren Support.</target>
 			</trans-unit>
 			<trans-unit id="consentController.error.alreadyConfirmed">
-				<source>TThank you for your feedback. You have already informed us of your decision</source>
+				<source>Thank you for your feedback. You have already informed us of your decision</source>
 				<target>Danke für Ihre Rückmeldung. Sie haben uns Ihre Entscheidung bereits mitgeteilt.</target>
 			</trans-unit>
 
+
+			<!-- Validation -->
+			<trans-unit id="validator.error.pleaseMakeDecision">
+				<source>Oops! Unfortunately you did not make a selection.</source>
+				<target>Upps! Leider haben Sie keine Auswahl getroffen.</target>
+			</trans-unit>
 
 
 			<!-- MailingController -->
@@ -165,19 +195,51 @@
 				<target>3.2 E-Mail final versenden</target>
 			</trans-unit>
 			<trans-unit id="layouts_backend_default.action.prepareReminder">
-				<source>3.3 Send Reminder</source>
-				<target>3.3 Erinnerungsmail versenden</target>
+				<source>Send Reminder</source>
+				<target>Erinnerungsmail versenden</target>
+			</trans-unit>
+			<trans-unit id="layouts_backend_default.action.sent">
+				<source>Sent / Finished</source>
+				<target>Versendet / Abgeschlossen</target>
 			</trans-unit>
 
 
+
             <!-- Templates/Consent/Show.html -->
-            <trans-unit id="templates_consent.confirm">
-                <source>Confirm</source>
-                <target>Bestätigen</target>
+            <trans-unit id="templates_show.confirm">
+                <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that the %s may continue to use my personal data.<br><strong>However, I do not agree</strong> to %1$s sending me satisfaction enquiries about our products, survey requests and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an e-mail to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
+                <target><![CDATA[<strong class="text-green">Ja, ich stimme zu</strong>, dass das RKW Kompetenzzentrum meine persönlichen Daten weiterhin verwenden darf.<br><strong>Ich willige jedoch nicht ein</strong>, dass mir %1$s Zufriedenheitsanfragen bezüglich unserer Produkte, Umfrageanfragen und Werbung über interessante Produkte zusendet. Meine Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft per Mail an <a href="mailto:%s">%2$s</a> widerrufen werden. Ferner habe ich die]]></target>
             </trans-unit>
-            <trans-unit id="templates_consent.delete">
-                <source>Delete</source>
-                <target>Löschen</target>
+            <trans-unit id="templates_show.confirmWithMarketing">
+                <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that %s may continue to use my personal data.<br><strong>I also expressly consent </strong> to %1$s sending me satisfaction enquiries regarding our products, survey enquiries and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an email to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
+                <target><![CDATA[<strong class="text-green">Ja, ich stimme zu</strong>, dass %s meine persönlichen Daten weiterhin verwenden darf.<br><strong>Zudem willige ich ausdrücklich ein</strong>, dass mir %1$s Zufriedenheitsanfragen bezüglich unserer Produkte, Umfrageanfragen und Werbung über interessante Produkte zusendet. Meine Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft per Mail an <a href="mailto:%s">%2$s</a> widerrufen werden. Ferner habe ich die]]></target>
+            </trans-unit>
+            <trans-unit id="templates_show.delete">
+                <source><![CDATA[<strong class="text-red">No, I do not consent</strong> to %s continuing to use my personal data. I understand that any registrations, orders or subscriptions associated with my personal data will also be deleted when you make this selection.]]></source>
+                <target><![CDATA[<strong class="text-red">Nein, ich stimme nicht zu</strong>, dass %s meine persönlichen Daten weiterhin verwenden darf.<br>Ich habe zur Kenntnis genommen, dass bei dieser Auswahl auch mit meinen persönlichen Daten in Verbindung stehende Anmeldungen, Bestellungen oder Abonnements gelöscht werden.]]></target>
+            </trans-unit>
+            <trans-unit id="templates_show.confirm.partTwo">
+                <source>data protection declaration</source>
+                <target>Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="templates_show.confirm.partThree">
+                <source>.</source>
+                <target>gelesen und verstanden.</target>
+            </trans-unit>
+            <trans-unit id="templates_show.submit">
+                <source>Accept and Submit</source>
+                <target>Übernehmen und absenden</target>
+            </trans-unit>
+
+
+            <!--Partials/Frontend/Address.html -->
+            <trans-unit id="partials_frontend_address.stored">
+                <source>Stored Data</source>
+                <target>Gespeicherte Daten</target>
+            </trans-unit>
+            <trans-unit id="partials_frontend_address.correction">
+                <source>Correction</source>
+                <target>Korrektur</target>
             </trans-unit>
 
 
@@ -332,6 +394,41 @@
 			<trans-unit id="partials_backend_propertiesReminder.reassure">
 				<source>I am sure that the email should be sent as reminder again.</source>
 				<target>Ich bin mir sicher, dass die E-Mail als Reminder erneut verschickt werden soll.</target>
+			</trans-unit>
+
+
+            <!-- Templates/Backend/Sent.html -->
+			<trans-unit id="templates_backend_sent.headline">
+				<source>Sent E-Mails</source>
+				<target>Versendete E-Mails</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.description">
+				<source>Here you can see all consent emails that have already been sent and are currently being sent.</source>
+				<target>Hier können Sie alle bereits versendete und im Versand befindliche Einwilligungsmails sehen.</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.uid">
+				<source>ID</source>
+				<target>ID</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.subject">
+				<source>Subject</source>
+				<target>Betreff</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.status">
+				<source>Status</source>
+				<target>Status</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.addresses">
+				<source>Addresses</source>
+				<target>Adressen</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.sentTstamp">
+				<source>Sent</source>
+				<target>Versendet</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.reminderTstamp">
+				<source>Reminder</source>
+				<target>Erinnerungsmail</target>
 			</trans-unit>
 
 

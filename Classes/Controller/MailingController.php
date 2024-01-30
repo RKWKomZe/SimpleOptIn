@@ -326,7 +326,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     'simple_consent'
                 ),
                 '',
-                FlashMessage::ERROR
+                AbstractMessage::ERROR
             );
         }
 
@@ -438,7 +438,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     'simple_consent'
                 ),
             '',
-            FlashMessage::ERROR
+                AbstractMessage::ERROR
             );
         }
 
@@ -471,7 +471,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 'simple_consent'
                 ),
                 '',
-                FlashMessage::ERROR
+                AbstractMessage::ERROR
             );
 
             $this->forward('prepareSend');
@@ -491,8 +491,9 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             AbstractMessage::OK
         );
 
-        $this->forward('create');
+        $this->forward('sent');
     }
+
 
 
     /**
@@ -511,7 +512,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     'simple_consent'
                 ),
                 '',
-                FlashMessage::ERROR
+                AbstractMessage::ERROR
             );
         }
 
@@ -544,7 +545,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     'simple_consent'
                 ),
                 '',
-                FlashMessage::ERROR
+                AbstractMessage::ERROR
             );
 
             $this->forward('prepareReminder');
@@ -565,7 +566,37 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             AbstractMessage::OK
         );
 
-        $this->forward('create');
+        $this->forward('sent');
     }
 
+
+    /**
+     * Sent e-Mails
+     *
+     * @param \Madj2k\SimpleConsent\Domain\Model\Mail|null $mail
+     * @return void
+     */
+    public function sentAction(Mail $mail = null): void
+    {
+        $mailListSending = $this->mailRepository->findByStatus(2);
+        $mailListSent = $this->mailRepository->findByStatus(3);
+        if (! count($mailListSent) && ! count($mailListSending)) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'mailingController.error.noMail',
+                    'simple_consent'
+                ),
+                '',
+                AbstractMessage::ERROR
+            );
+        }
+
+        $this->view->assignMultiple(
+            [
+                'mail' => $mail,
+                'mailListSent' => $mailListSent,
+                'mailListSending' => $mailListSending,
+            ]
+        );
+    }
 }

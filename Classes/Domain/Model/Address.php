@@ -28,6 +28,7 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @var int
+     * @TYPO3\CMS\Extbase\Annotation\Validate("RegularExpression", options={ "regularExpression":"/^0|1|2|99$/i" })
      */
     protected int $gender = 99;
 
@@ -82,6 +83,7 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("EmailAddress")
      */
     protected string $email = '';
 
@@ -96,6 +98,12 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var int
      */
     protected int $status = 0;
+
+
+    /**
+     * @var int
+     */
+    protected int $updated = 0;
 
 
     /**
@@ -382,6 +390,29 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setStatus(int $status): void
     {
         $this->status = $status;
+    }
+
+
+    /**
+     * Returns updated
+     *
+     * @return int
+     */
+    public function getUpdated(): int
+    {
+        return $this->updated;
+    }
+
+
+    /**
+     * Sets updated
+     *
+     * @param int $updated
+     * @return void
+     */
+    public function setUpdated(int $updated): void
+    {
+        $this->updated = $updated;
     }
 
 

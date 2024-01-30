@@ -16,7 +16,7 @@ call_user_func(
                 'management',		// Submodule key
                 '',					// Position
                 [
-                    'Mailing' => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send, prepareReminder, reminder',
+                    'Mailing' => 'create, edit, save, import, importSave, prepareTest, sendTest, prepareSend, send, prepareReminder, reminder, sent',
                 ],
                 [
                     'access' => 'user,group',

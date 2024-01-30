@@ -3,6 +3,16 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-06-12T13:49:26Z" product-name="simple_consent">
 		<header/>
 		<body>
+			<trans-unit id="flexform.textAbove">
+				<source>Text shown above the list of stored personal data</source>
+				<target>Angezeigter Text oberhalb der Liste der gespeicherten personenbezogenen Daten</target>
+			</trans-unit>
+			<trans-unit id="flexform.textBelow">
+				<source>Text shown below the list of stored personal data</source>
+				<target>Angezeigter Text unterhalb der Liste der gespeicherten personenbezogenen Daten</target>
+			</trans-unit>
+
+
             <!-- tx_simpleconsent_domain_model_address -->
             <trans-unit id="tx_simpleconsent_domain_model_address">
 				<source>SimpleConsent: Address</source>
@@ -68,6 +78,14 @@
                 <source>Status</source>
                 <target>Status</target>
             </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.updated">
+                <source>Updated</source>
+                <target>Aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.updated.1">
+                <source>Updated</source>
+                <target>Aktualisiert</target>
+            </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.0">
                 <source>Not yet addressed</source>
                 <target>Noch nicht angeschrieben</target>
@@ -81,12 +99,24 @@
                 <target>Kontakt bestätigt</target>
             </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.3">
+                <source>Contact confirmed and marketing allowed</source>
+                <target>Kontakt bestätigt und Marketing erlaubt</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.90">
                 <source>Deletion requested</source>
                 <target>Löschung gewünscht</target>
             </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.99">
                 <source>Error</source>
                 <target>Fehler</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.feedback_tstamp">
+                <source>Time of feedback</source>
+                <target>Zeitpunkt der Rückmeldung</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.feedback_ip">
+                <source>IP Address of Feedback</source>
+                <target>IP-Adresse der Rückmeldung</target>
             </trans-unit>
 
 
@@ -107,6 +137,10 @@
 				<source>Message (HTML)</source>
 				<target>Nachricht (HTML)</target>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.plugin_pid">
+                <source>PID of Plugin</source>
+                <target>Seiten-ID des Plugins</target>
+            </trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_mail.status">
                 <source>Status</source>
                 <target>Status</target>
@@ -138,6 +172,14 @@
 			<trans-unit id="tx_simpleconsent_domain_model_mail.reminder">
                 <source>Send reminder</source>
                 <target>Erinnerung versenden</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.sent_tstamp">
+                <source>Time of Sending</source>
+                <target>Zeitpunkt des Versands</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.reminder_tstamp">
+                <source>Time of Reminder</source>
+                <target>Zeitpunkt der Erinnerungsmail</target>
             </trans-unit>
 
         </body>
