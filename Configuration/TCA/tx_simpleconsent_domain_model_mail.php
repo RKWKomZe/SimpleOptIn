@@ -64,6 +64,21 @@ return [
                 'enableRichtext' => true
             ],
         ],
+        'plugin_pid' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.plugin_pid',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+                'fieldControl' => [
+                    'linkPopup' => [
+                        'options' => [
+                            'blindLinkOptions' => 'file, folder, mail, telephone, url',
+                        ],
+                    ],
+                ],
+            ],
+        ],
         'status' => [
             'label'=>'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.status',
             'exclude' => 0,
@@ -88,6 +103,34 @@ return [
             'config' => [
                 'type' => 'check',
             ]
+        ],
+        'sent_tstamp' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.sent_tstamp',
+            'config' => [
+                'type'    => 'input',
+                'renderType' => 'inputDateTime',
+                'size'    => 13,
+                'eval'    => 'datetime',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true
+                ]
+            ],
+        ],
+        'reminder_tstamp' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.reminder_tstamp',
+            'config' => [
+                'type'    => 'input',
+                'renderType' => 'inputDateTime',
+                'size'    => 13,
+                'eval'    => 'datetime',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true
+                ]
+            ],
         ],
         'addresses' => [
             'exclude' => 0,

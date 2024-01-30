@@ -23,7 +23,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
- * Class ConsentoCntroller
+ * Class ConsentController
  *
  * @author Steffen Kroggel <developer@steffenkroggel.de>
  * @copyright Steffen Kroggel
@@ -41,12 +41,27 @@ class ConsentController extends ActionController
 
 
     /**
+     * A template method for displaying custom error flash messages, or to
+     * display no flash message at all on errors. Override this to customize
+     * the flash message in your action controller.
+     *
+     * @return string The flash message or FALSE if no flash message should be set
+     */
+    protected function getErrorFlashMessage()
+    {
+        return false;
+    }
+
+
+    /**
      * Gets the current data
      *
      * @param string $hash
+     * @param \Madj2k\SimpleConsent\Domain\Model\Address|null $addressNew
      * @return void
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("addressNew")
      */
-    public function showAction(string $hash): void
+    public function showAction(string $hash, Address $addressNew = null): void
     {
 
         if ($hash == 'abcdefghijklmnopqrstuvwxyz1234') {
@@ -62,6 +77,7 @@ class ConsentController extends ActionController
             $address->setPhone('1234 / 123456');
             $address->setEmail('sam@muster.com');
             $address->setStatus(1);
+
         } else {
             $address = $this->addressRepository->findOneByHash($hash);
         }
@@ -93,62 +109,72 @@ class ConsentController extends ActionController
          */
         $this->view->assignMultiple(
             [
-                'address' => $address
+                'address' => $address,
+                'addressNew' => $addressNew ?: GeneralUtility::makeInstance(Address::class),
+                'hash' => $hash
             ]
         );
     }
 
 
     /**
-     * Confirm usage of data
+     * Decision concerning usage of data
      *
+     * @param string $hash
      * @param \Madj2k\SimpleConsent\Domain\Model\Address $address
+     * @param \Madj2k\SimpleConsent\Domain\Model\Address $addressNew
      * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Generic\Exception\TooDirtyException
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("address")
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Madj2k\SimpleConsent\Validation\Validator\AddressStatusValidator", param="addressNew")
      */
-    public function confirmAction(Address $address) : void
+    public function decisionAction(string $hash, Address $address, Address $addressNew) : void
     {
-        $address->setStatus(2);
+        // Update some fields if they are set!
+        $allowedProperties = [
+            'gender', 'title', 'firstName', 'lastName',
+            'company', 'address', 'zip', 'city', 'phone', 'email'];
+
+        foreach ($allowedProperties as $property) {
+            $getter = 'get' . ucFirst($property);
+            $setter = 'set' . ucFirst($property);
+
+            if (
+                (trim($addressNew->$getter()) != '')
+                && !($property == 'gender' && $addressNew->$getter() == 99)
+            ){
+                $address->$setter(trim($addressNew->$getter()));
+                $address->setUpdated(true);
+            }
+        }
+
+        $address->setStatus($addressNew->getStatus());
         $address->setFeedbackTstamp(time());
         $address->setFeedbackIp(ClientUtility::getIp());
 
         $this->addressRepository->update($address);
 
-        $this->addFlashMessage(
-            LocalizationUtility::translate(
-                'consentController.message.confirmed',
-                'simple_consent'
-            ),
-            '',
-            AbstractMessage::OK
-        );
-    }
-
-
-    /**
-     * Delete data
-     *
-     * @param \Madj2k\SimpleConsent\Domain\Model\Address $address
-     * @return void
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
-     */
-    public function deleteAction(Address $address) : void
-    {
-        $address->setStatus(3);
-        $address->setFeedbackTstamp(time());
-        $address->setFeedbackIp(ClientUtility::getIp());
-
-        $this->addressRepository->update($address);
-
-        $this->addFlashMessage(
-            LocalizationUtility::translate(
-                'consentController.message.deleted',
-                'simple_consent'
-            ),
-            '',
-            AbstractMessage::OK
-        );
+        if ($status == 90) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'consentController.message.deleted',
+                    'simple_consent'
+                ),
+                '',
+                AbstractMessage::OK
+            );
+        } else {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'consentController.message.confirmed',
+                    'simple_consent'
+                ),
+                '',
+                AbstractMessage::OK
+            );
+        }
     }
 }

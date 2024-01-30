@@ -16,6 +16,9 @@ namespace Madj2k\SimpleConsent\Domain\Model;
 
 use Madj2k\Postmaster\Domain\Model\QueueMail;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use Madj2k\CoreExtended\Serialization\SerializableEntityInterface;
+use Madj2k\CoreExtended\Serialization\SerializableEntityTrait;
+
 
 /**
  * Class Mail
@@ -24,10 +27,10 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * @copyright Steffen Kroggel
  * @package Madj2k_SimpleConsent
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  */
-class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements SerializableEntityInterface
 {
+    use SerializableEntityTrait;
 
     /**
      * @var int
@@ -56,12 +59,31 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var int
      */
+    protected int $pluginPid = 0;
+
+
+    /**
+     * @var int
+     */
     protected int $status = 0;
+
 
     /**
      * @var int
      */
     protected int $reminder = 0;
+
+
+    /**
+     * @var int
+     */
+    protected int $sentTstamp = 0;
+
+
+    /**
+     * @var int
+     */
+    protected int $reminderTstamp = 0;
 
 
     /**
@@ -71,7 +93,7 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage|null
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Madj2k\SimpleConsent\Domain\Model\Address>|null
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected ?ObjectStorage $addresses = null;
@@ -204,6 +226,29 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
+     * Returns pluginPid
+     *
+     * @return int
+     */
+    public function getPluginPid(): int
+    {
+        return $this->pluginPid;
+    }
+
+
+    /**
+     * Sets pluginPid
+     *
+     * @param int $pluginPid
+     * @return void
+     */
+    public function setPluginPid(int $pluginPid): void
+    {
+        $this->status = $pluginPid;
+    }
+
+
+    /**
      * Returns status
      *
      * @return int
@@ -246,6 +291,52 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setReminder(int $reminder): void
     {
         $this->reminder = $reminder;
+    }
+
+
+    /**
+     * Returns sentTstamp
+     *
+     * @return string
+     */
+    public function getSentTstamp(): string
+    {
+        return $this->sentTstamp;
+    }
+
+
+    /**
+     * Sets sentTstamp
+     *
+     * @param int $sentTstamp
+     * @return void
+     */
+    public function setSentTstamp(int $sentTstamp): void
+    {
+        $this->sentTstamp = $sentTstamp;
+    }
+
+
+    /**
+     * Returns reminderTstamp
+     *
+     * @return string
+     */
+    public function getReminderTstamp(): string
+    {
+        return $this->reminderTstamp;
+    }
+
+
+    /**
+     * Sets reminderTstamp
+     *
+     * @param int $reminderTstamp
+     * @return void
+     */
+    public function setReminderTstamp(int $reminderTstamp): void
+    {
+        $this->reminderTstamp = $reminderTstamp;
     }
 
 

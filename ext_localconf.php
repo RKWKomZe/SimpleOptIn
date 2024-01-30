@@ -9,11 +9,11 @@ call_user_func(
             'Madj2k.' . $extKey,
             'Consent',
             [
-                'Consent' => 'show, confirm, delete',
+                'Consent' => 'show, decision',
             ],
             // non-cacheable actions
             [
-                'Consent' => 'show, confirm, delete',
+                'Consent' => 'show, decision',
             ]
         );
 
@@ -22,13 +22,13 @@ call_user_func(
         // Add TypoScript automatically
         //=================================================================
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
-            'Accelerator',
+            'SimpleConsent',
             'constants',
             '<INCLUDE_TYPOSCRIPT: source="FILE: EXT:simple_consent/Configuration/TypoScript/constants.typoscript">'
         );
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
-            'Accelerator',
+            'SimpleConsent',
             'setup',
             '<INCLUDE_TYPOSCRIPT: source="FILE: EXT:simple_consent/Configuration/TypoScript/setup.typoscript">'
         );

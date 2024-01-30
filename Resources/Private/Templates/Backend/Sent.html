@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+
+    <f:section name="content">
+
+        <h1>
+            <f:translate key="templates_backend_sent.headline" />
+        </h1>
+
+        <p class="tx_simpleconsent-description">
+            <f:translate key="templates_backend_sent.description" />
+        </p>
+
+        <table class="table table-striped table-hover postmaster-statistics-list">
+            <thead>
+                <tr>
+                    <th role="columnheader"><f:translate key="templates_backend_sent.table.uid" /></th>
+                    <th role="columnheader"><f:translate key="templates_backend_sent.table.subject" /></th>
+                    <th role="columnheader"><f:translate key="templates_backend_sent.table.status" /></th>
+                    <th role="columnheader"><f:translate key="templates_backend_sent.table.addresses" /></th>
+                    <th role="columnheader"><f:translate key="templates_backend_sent.table.sentTstamp" /></th>
+                    <th role="columnheader"><f:translate key="templates_backend_sent.table.reminderTstamp" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <f:for each="{mailListSending}" as="mail" >
+                    <f:render partial="MailOverview" arguments="{mail: mail}" />
+                </f:for>
+                <f:for each="{mailListSent}" as="mail" >
+                     <f:render partial="MailOverview" arguments="{mail: mail}" />
+                </f:for>
+            </tbody>
+        </table>
+    </f:section>
+</html>

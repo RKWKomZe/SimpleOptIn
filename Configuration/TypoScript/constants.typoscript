@@ -22,6 +22,15 @@ plugin.tx_simpleconsent {
 
         # cat=plugin.tx_simpleconsent//a; type=int; label=Pid of the plugin for the consent
         consentPid =
+
+        # cat=plugin.tx_simpleconsent//a; type=integer; label=Pid of privacy & conditions
+        privacyPid =
+
+        # cat=plugin.tx_simpleconsent//a; type=string; label=Company name for consent
+        companyName =
+
+        # cat=plugin.tx_simpleconsent//a; type=string; label=Company email for revocation of consent
+        companyEmail =
 	}
 }
 

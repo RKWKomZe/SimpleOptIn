@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    
+    <tr role="row">
+        <td>
+            {mail.uid}
+        </td>
+        <td>
+            {mail.subject}
+        </td>
+        <td>
+            <f:translate key="tx_simpleconsent_domain_model_mail.status.{mail.status}" />
+        </td>
+        <td>
+            <f:count>{mail.addresses}</f:count>
+        </td>
+        <td>
+            <f:if condition="{mail.sentTstamp}">
+                <f:then><nobr><f:format.date format="d.m.Y H:i">{mail.sentTstamp}</f:format.date></nobr></f:then>
+                <f:else>&ndash;</f:else>
+            </f:if>
+        </td>
+        <td>
+            <f:if condition="{mail.reminderTstamp}">
+                <f:then><nobr><f:format.date format="d.m.Y H:i">{mail.reminderTstamp}</f:format.date></nobr></f:then>
+                <f:else>&ndash;</f:else>
+            </f:if>
+        </td>
+    </tr>
+</html>

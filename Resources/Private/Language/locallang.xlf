@@ -49,6 +49,9 @@
 
 
 			<!-- tx_simpleconsent_domain_model_mail -->
+			<trans-unit id="tx_simpleconsent_domain_model_mail.plugin_pid">
+                <source>PID of Plugin</source>
+            </trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_mail.subject">
 				<source>Subject</source>
 			</trans-unit>
@@ -58,6 +61,21 @@
 			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html">
 				<source>Message (HTML)</source>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.status.0">
+                <source>Draft</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.1">
+                <source>Waiting for Dispatch</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.2">
+                <source>Sending</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.3">
+                <source>Sent</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_mail.status.99">
+                <source>Error</source>
+            </trans-unit>
 
 
 			<!-- ConsentController -->
@@ -74,6 +92,11 @@
 				<source>TThank you for your feedback. You have already informed us of your decision</source>
 			</trans-unit>
 
+
+			<!-- Validation -->
+			<trans-unit id="validator.error.pleaseMakeDecision">
+				<source>Oops! Unfortunately you did not make a selection.</source>
+			</trans-unit>
 
 
 			<!-- MailingController -->
@@ -134,12 +157,24 @@
 
 
 			<!-- Templates/Consent/Show.html -->
-			<trans-unit id="templates_consent.confirm">
-				<source>Confirm</source>
-			</trans-unit>
-			<trans-unit id="templates_consent.delete">
-				<source>Delete</source>
-			</trans-unit>
+            <trans-unit id="templates_show.confirm">
+                <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that the %s may continue to use my personal data.<br><strong>However, I do not agree</strong> to %1$s sending me satisfaction enquiries about our products, survey requests and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an e-mail to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
+            </trans-unit>
+            <trans-unit id="templates_show.confirmWithMarketing">
+                <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that %s may continue to use my personal data.<br><strong>I also expressly consent </strong> to %1$s sending me satisfaction enquiries regarding our products, survey enquiries and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an email to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
+            </trans-unit>
+            <trans-unit id="templates_show.delete">
+                <source><![CDATA[<strong class="text-red">No, I do not consent</strong> to %s continuing to use my personal data.<br>I understand that any registrations, orders or subscriptions associated with my personal data will also be deleted when you make this selection.]]></source>
+            </trans-unit>
+            <trans-unit id="templates_show.confirm.partTwo">
+                <source>data protection declaration</source>
+            </trans-unit>
+            <trans-unit id="templates_show.confirm.partThree">
+                <source>.</source>
+            </trans-unit>
+            <trans-unit id="templates_show.submit">
+                <source>Accept and Submit</source>
+            </trans-unit>
 
 
 			<!-- Templates/Backend/Create.html -->

@@ -6,41 +6,52 @@
     <f:section name="main">
 
         <f:render partial="FlashMessages" arguments="{_all}" />
-        
+        <f:render partial="FormErrors" arguments="{for:newAddress}" />
+
         <f:if condition="{address} && {address.status} == 1">
-            
-            <f:render partial="Frontend/Address" arguments="{_all}" />
-            
-            <div class="btn-list btn-list--footer">
-    
-                <f:if condition="{address.uid}">
-                    <f:then>
-                        <f:link.action
-                            class="mt-1 btn btn--secondary"
-                            action="delete"
-                            arguments="{address: address}">
-                            <f:translate key="templates_consent.delete" />
-                        </f:link.action>
-                        <f:link.action
-                            class="mt-1 btn btn--primary"
-                            action="confirm"
-                            arguments="{address: address}">
-                            <f:translate key="templates_consent.confirm" />
-                        </f:link.action>
-                    </f:then>
-                    <f:else>
-                        <a href="#"
-                           class="mt-1 btn btn--secondary">
-                            <f:translate key="templates_consent.delete" />
-                        </a>
-                        <a href="#"
-                           class="mt-1 btn btn--primary">
-                            <f:translate key="templates_consent.confirm" />
-                        </a>                        
-                    </f:else>
-                </f:if>
+
+            <f:form action="decision" name="addressNew" object="addressNew">
+                <f:form.hidden name="hash" value="{hash}" />
+                <f:form.hidden name="address" value="{address}" />
                 
-            </div>
+                <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{settings.textAbove}</f:format.html>
+                <f:render partial="Frontend/Address" arguments="{_all}" />
+                <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{settings.textBelow}</f:format.html>
+
+                <div class="flex-container">
+                    
+                    <div class="form__approval">
+                        <div class="form__field">
+                            <f:form.radio class="radio" id="option-2" property="status" value="3" />
+                            <label for="option-2" class="radio-label">
+                                <f:format.raw><f:translate key="templates_show.confirmWithMarketing" arguments="{0: settings.companyName, 1: settings.companyEmail}" /></f:format.raw>
+                                <f:link.page pageUid="{setting.privacyPid}" target="_blank"><f:format.raw><f:translate key="templates_show.confirm.partTwo" /></f:format.raw></f:link.page>
+                                <f:format.raw><f:translate key="templates_show.confirm.partThree" /></f:format.raw>
+                            </label>
+                        </div>
+                        <div class="form__field">
+                            <f:form.radio class="radio" id="option-1" property="status" value="2" />
+                            <label for="option-1" class="radio-label">
+                                <f:format.raw><f:translate key="templates_show.confirm" arguments="{0: settings.companyName, 1: settings.companyEmail}" /></f:format.raw>
+                                <f:link.page pageUid="{setting.privacyPid}" target="_blank"><f:format.raw><f:translate key="templates_show.confirm.partTwo" /></f:format.raw></f:link.page>
+                                <f:format.raw><f:translate key="templates_show.confirm.partThree" /></f:format.raw>
+                            </label>
+                        </div>
+                        <div class="form__field">
+                            <f:form.radio class="radio" id="option-3" property="status" value="90" />
+                            <label for="option-3" class="radio-label">
+                                <f:format.raw><f:translate key="templates_show.delete" arguments="{0: settings.companyName}"/></f:format.raw>
+                            </label>
+                        </div>
+
+                        <f:form.button class="btn btn--primary"><f:translate key="templates_show.submit" /></f:form.button>
+
+                    </div>
+                </div>
+
+            </f:form>
+
+
         </f:if>
     </f:section>
 </html>

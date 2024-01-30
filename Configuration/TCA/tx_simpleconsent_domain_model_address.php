@@ -145,6 +145,16 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'updated' => [
+            'label'=>'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.updated',
+            'exclude' => 0,
+            'config'=>[
+                'type' => 'check',
+                'items' => [
+                    ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.updated.1', ''],
+                ],
+            ],
+        ],
         'status' => [
             'label'=>'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status',
             'exclude' => 0,
@@ -159,33 +169,33 @@ return [
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status.1', '1'],
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status.2', '2'],
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status.3', '3'],
+                    ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status.90', '90'],
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.status.99', '99'],
                 ],
             ],
-            'feedback_tstamp' => [
-                'exclude' => 0,
-                'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.feedback_tstamp',
-                'config' => [
-                    'type'    => 'input',
-                    'renderType' => 'inputDateTime',
-                    'size'    => 13,
-                    'eval'    => 'datetime',
-                    'default' => 0,
-                    'behaviour' => [
-                        'allowLanguageSynchronization' => true
-                    ]
-                ],
+        ],
+        'feedback_tstamp' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.feedback_tstamp',
+            'config' => [
+                'type'    => 'input',
+                'renderType' => 'inputDateTime',
+                'size'    => 13,
+                'eval'    => 'datetime',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true
+                ]
             ],
-            'feedback_ip' => [
-                'exclude' => 0,
-                'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.feedback_ip',
-                'config' => [
-                    'type' => 'input',
-                    'size' => 30,
-                    'eval' => 'trim'
-                ],
+        ],
+        'feedback_ip' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.feedback_ip',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
-
         ],
     ],
 ];
