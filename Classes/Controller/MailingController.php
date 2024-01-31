@@ -56,16 +56,48 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @var \Madj2k\SimpleConsent\Domain\Repository\MailRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    protected MailRepository  $mailRepository;
+    protected ?MailRepository  $mailRepository = null;
 
 
     /**
-     * PersistenceManager
-     *
+     * @var \Madj2k\SimpleConsent\Domain\Repository\AddressRepository
+     * @TYPO3\CMS\Extbase\Annotation\Inject
+     */
+    protected ?AddressRepository  $addressRepository = null;
+
+
+    /**
      * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    protected PersistenceManager $persistenceManager;
+    protected ?PersistenceManager $persistenceManager = null;
+
+
+    /**
+     * @param \Madj2k\SimpleConsent\Domain\Repository\MailRepository mailRepository
+     */
+    public function injectMailRepository(MailRepository $mailRepository)
+    {
+        $this->mailRepository = $mailRepository;
+    }
+
+
+    /**
+     * @param \Madj2k\SimpleConsent\Domain\Repository\AddressRepository addressRepository
+     */
+    public function injectAddressRepository(AddressRepository $addressRepository)
+    {
+        $this->addressRepository = $addressRepository;
+    }
+
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager persistenceManager
+     */
+    public function injectPersistenceManager(PersistenceManager $persistenceManager)
+    {
+        $this->persistenceManager = $persistenceManager;
+    }
 
 
     /**
@@ -351,6 +383,7 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @throws \TYPO3\CMS\Extbase\Configuration\Exception\InvalidConfigurationTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
+     * @throws \Exception
      */
     public function sendTestAction(Mail $mail, string $emailAddress = ''): void
     {
@@ -376,14 +409,32 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             );
         }
 
+        // generate test-address
+        /** @var \Madj2k\SimpleConsent\Domain\Model\Address $address */
+        $address = \Madj2k\CoreExtended\Utility\GeneralUtility::makeInstance(Address::class);
+        $address->setTitle('Dr.');
+        $address->setGender(2);
+        $address->setFirstName('Sam');
+        $address->setLastName('Muster');
+        $address->setCompany('Muster Inc.');
+        $address->setAddress('Testallee 15');
+        $address->setZip('12345');
+        $address->setCity('Testhausen');
+        $address->setPhone('1234 / 123456');
+        $address->setEmail($emailAddress);
+        $address->setStatus(1);
+        $address->setHash(\Madj2k\CoreExtended\Utility\GeneralUtility::getUniqueRandomString());
+        $address->setTesting(true);
+        $this->addressRepository->add($address);
+
+        /** @var \Madj2k\SimpleConsent\Service\MailService $mailService */
         $mailService = GeneralUtility::makeInstance(MailService::class);
         if ($mailService->sendConsentEmail(
             [
                 'first_name' => 'Sam',
                 'last_name' => 'Muster',
-                'email' => $emailAddress,
-                'hash' => 'abcdefghijklmnopqrstuvwxyz1234' // we need 20 signs for the hash
-
+                'email' => $address->getEmail(),
+                'hash' => $address->getHash()
             ],
             $mail
         )) {
@@ -542,6 +593,19 @@ class MailingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->addFlashMessage(
                 LocalizationUtility::translate(
                     'mailingController.error.pleaseReassure',
+                    'simple_consent'
+                ),
+                '',
+                AbstractMessage::ERROR
+            );
+
+            $this->forward('prepareReminder');
+        }
+
+        if ($mail->getReminderTstamp()) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate(
+                    'mailingController.error.reminderAlreadySent',
                     'simple_consent'
                 ),
                 '',

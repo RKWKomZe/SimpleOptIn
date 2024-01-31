@@ -37,7 +37,16 @@ class ConsentController extends ActionController
      * @var \Madj2k\SimpleConsent\Domain\Repository\AddressRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
-    protected AddressRepository $addressRepository;
+    protected ?AddressRepository $addressRepository = null;
+
+
+    /**
+     * @param \Madj2k\SimpleConsent\Domain\Repository\AddressRepository addressRepository
+     */
+    public function injectAddressRepository(AddressRepository $addressRepository)
+    {
+        $this->addressRepository = $addressRepository;
+    }
 
 
     /**
@@ -59,29 +68,14 @@ class ConsentController extends ActionController
      * @param string $hash
      * @param \Madj2k\SimpleConsent\Domain\Model\Address|null $addressNew
      * @return void
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("addressNew")
      */
     public function showAction(string $hash, Address $addressNew = null): void
     {
 
-        if ($hash == 'abcdefghijklmnopqrstuvwxyz1234') {
-            $address = GeneralUtility::makeInstance(Address::class);
-            $address->setTitle('Dr.');
-            $address->setGender(2);
-            $address->setFirstName('Sam');
-            $address->setLastName('Muster');
-            $address->setCompany('Muster Inc.');
-            $address->setAddress('Testallee 15');
-            $address->setZip('12345');
-            $address->setCity('Testhausen');
-            $address->setPhone('1234 / 123456');
-            $address->setEmail('sam@muster.com');
-            $address->setStatus(1);
-
-        } else {
-            $address = $this->addressRepository->findOneByHash($hash);
-        }
-
+        $address = $this->addressRepository->findOneByHash($hash);
         if (! $address) {
             $this->addFlashMessage(
                 LocalizationUtility::translate(
@@ -93,7 +87,7 @@ class ConsentController extends ActionController
             );
         }
 
-        if ($address->getStatus() > 1) {
+        if ($address->getStatus() >= 10) {
             $this->addFlashMessage(
                 LocalizationUtility::translate(
                     'consentController.error.alreadyConfirmed',
@@ -111,7 +105,7 @@ class ConsentController extends ActionController
             [
                 'address' => $address,
                 'addressNew' => $addressNew ?: GeneralUtility::makeInstance(Address::class),
-                'hash' => $hash
+                'hash' => $hash,
             ]
         );
     }
@@ -120,7 +114,6 @@ class ConsentController extends ActionController
     /**
      * Decision concerning usage of data
      *
-     * @param string $hash
      * @param \Madj2k\SimpleConsent\Domain\Model\Address $address
      * @param \Madj2k\SimpleConsent\Domain\Model\Address $addressNew
      * @return void
@@ -131,7 +124,7 @@ class ConsentController extends ActionController
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("address")
      * @TYPO3\CMS\Extbase\Annotation\Validate("Madj2k\SimpleConsent\Validation\Validator\AddressStatusValidator", param="addressNew")
      */
-    public function decisionAction(string $hash, Address $address, Address $addressNew) : void
+    public function decisionAction(Address $address, Address $addressNew) : void
     {
         // Update some fields if they are set!
         $allowedProperties = [
@@ -157,7 +150,7 @@ class ConsentController extends ActionController
 
         $this->addressRepository->update($address);
 
-        if ($status == 90) {
+        if ($addressNew->getStatus() == 20) {
             $this->addFlashMessage(
                 LocalizationUtility::translate(
                     'consentController.message.deleted',

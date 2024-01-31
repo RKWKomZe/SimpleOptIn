@@ -37,7 +37,7 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 /**
  * class SendCommand
  *
- * Execute on CLI with: 'vendor/bin/typo3 simpleConsent:send'
+ * Execute on CLI with: 'vendor/bin/typo3 simple_consent:send'
  *
  * @author Steffen Kroggel <developer@steffenkroggel.de>
  * @copyright Steffen Kroggel
@@ -90,8 +90,8 @@ class SendCommand extends Command
                 'sleep',
                 's',
                 InputOption::VALUE_REQUIRED,
-                'How many seconds the script should sleep after each run (default: 10)',
-                10
+                'How many seconds the script should sleep after each run (default: 5)',
+                5
             );
     }
 
@@ -141,7 +141,6 @@ class SendCommand extends Command
 
         $result = 0;
 
-
         /** @var \TYPO3\CMS\Core\Database\ConnectionPool $connectionPool */
         $connectionPool = \Madj2k\CoreExtended\Utility\GeneralUtility::makeInstance(ConnectionPool::class);
 
@@ -177,7 +176,6 @@ class SendCommand extends Command
                         $queueMail->setSettingsPid($mail->getPluginPid());
                         $mail->setQueueMail($queueMail);
                     }
-
                     $recipientCnt = 0;
                     if ($addressesList = $statement->fetchColumn()) {
 
@@ -211,7 +209,7 @@ class SendCommand extends Command
                             // update status
                             $updateQueryBuilder = $connectionPool->getQueryBuilderForTable('tx_simpleconsent_domain_model_address');
                             $updateQueryBuilder->update('tx_simpleconsent_domain_model_address')
-                                ->set('status', 1)
+                                ->set('status', ($mail->getReminder() ? 2 : 1))
                                 ->set('tstamp', time())
                                 ->where(
                                     $updateQueryBuilder->expr()->eq(

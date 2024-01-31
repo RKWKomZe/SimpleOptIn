@@ -8,9 +8,9 @@
         <f:render partial="FlashMessages" arguments="{_all}" />
         <f:render partial="FormErrors" arguments="{for:newAddress}" />
 
-        <f:if condition="{address} && {address.status} == 1">
+        <f:if condition="{address} && {address.status} < 10">
 
-            <f:form action="decision" name="addressNew" object="addressNew">
+            <f:form action="decision" name="addressNew" object="addressNew" >
                 <f:form.hidden name="hash" value="{hash}" />
                 <f:form.hidden name="address" value="{address}" />
                 
@@ -22,7 +22,7 @@
                     
                     <div class="form__approval">
                         <div class="form__field">
-                            <f:form.radio class="radio" id="option-2" property="status" value="3" />
+                            <f:form.radio class="radio" id="option-2" property="status" value="11" />
                             <label for="option-2" class="radio-label">
                                 <f:format.raw><f:translate key="templates_show.confirmWithMarketing" arguments="{0: settings.companyName, 1: settings.companyEmail}" /></f:format.raw>
                                 <f:link.page pageUid="{setting.privacyPid}" target="_blank"><f:format.raw><f:translate key="templates_show.confirm.partTwo" /></f:format.raw></f:link.page>
@@ -30,7 +30,7 @@
                             </label>
                         </div>
                         <div class="form__field">
-                            <f:form.radio class="radio" id="option-1" property="status" value="2" />
+                            <f:form.radio class="radio" id="option-1" property="status" value="10" />
                             <label for="option-1" class="radio-label">
                                 <f:format.raw><f:translate key="templates_show.confirm" arguments="{0: settings.companyName, 1: settings.companyEmail}" /></f:format.raw>
                                 <f:link.page pageUid="{setting.privacyPid}" target="_blank"><f:format.raw><f:translate key="templates_show.confirm.partTwo" /></f:format.raw></f:link.page>
@@ -38,7 +38,7 @@
                             </label>
                         </div>
                         <div class="form__field">
-                            <f:form.radio class="radio" id="option-3" property="status" value="90" />
+                            <f:form.radio class="radio" id="option-3" property="status" value="20" />
                             <label for="option-3" class="radio-label">
                                 <f:format.raw><f:translate key="templates_show.delete" arguments="{0: settings.companyName}"/></f:format.raw>
                             </label>

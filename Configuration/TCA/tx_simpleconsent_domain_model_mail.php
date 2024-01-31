@@ -24,8 +24,11 @@ return [
         '1' => ['showitem' => ''],
     ],
     'columns' => [
-
-
+        'crdate' => [
+            'config' => [
+                'type' => 'passthrough',
+            ]
+        ],
         'hidden' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',

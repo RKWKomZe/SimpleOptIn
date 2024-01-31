@@ -171,6 +171,10 @@
 				<source>The selected email has been successfully marked for sending and will be sent shortly.</source>
 				<target>Die ausgewählte E-Mail wurde erfolgsreich für den Versand markiert und wird in Kürze versendet.</target>
 			</trans-unit>
+			<trans-unit id="mailingController.error.reminderAlreadySent">
+				<source>A reminder has already been sent for the selected e-mail.</source>
+				<target>Für die ausgewählte E-Mail wurde bereits ein Reminder versendet.</target>
+			</trans-unit>
 
 
 			<!-- Layouts/Backend/Default-->
@@ -320,6 +324,10 @@
 				<source>Send</source>
 				<target>Senden</target>
 			</trans-unit>
+			<trans-unit id="templates_backend_prepareTest.next">
+				<source>Next</source>
+				<target>Weiter</target>
+			</trans-unit>
 
 
 			<!-- Partials/Backend/PropertiesTest.html -->
@@ -369,8 +377,8 @@
 
             <!-- Templates/Backend/PrepareReminder.html -->
 			<trans-unit id="templates_backend_prepareReminder.headline">
-				<source>3.3 Send reminder</source>
-				<target>3.3 Email versenden</target>
+				<source>Send reminder</source>
+				<target>Erinnerungsmail versenden</target>
 			</trans-unit>
 			<trans-unit id="templates_backend_prepareReminder.description">
 				<source>Here you can send the selected consent email as reminder to the imported addresses. Only those persons who have not yet responded to the last e-mail will be contacted again.</source>
@@ -413,6 +421,10 @@
 			<trans-unit id="templates_backend_sent.table.subject">
 				<source>Subject</source>
 				<target>Betreff</target>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.crdate">
+				<source>Created</source>
+				<target>Erstellt</target>
 			</trans-unit>
 			<trans-unit id="templates_backend_sent.table.status">
 				<source>Status</source>

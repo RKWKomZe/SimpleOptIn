@@ -109,6 +109,12 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var int
      */
+    protected int $testing = 0;
+
+
+    /**
+     * @var int
+     */
     protected int $feedbackTstamp = 0;
 
 
@@ -413,6 +419,29 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setUpdated(int $updated): void
     {
         $this->updated = $updated;
+    }
+
+
+    /**
+     * Returns testing
+     *
+     * @return int
+     */
+    public function getTesting(): int
+    {
+        return $this->testing;
+    }
+
+
+    /**
+     * Sets testing
+     *
+     * @param int $testing
+     * @return void
+     */
+    public function setTesting(int $testing): void
+    {
+        $this->testing = $testing;
     }
 
 

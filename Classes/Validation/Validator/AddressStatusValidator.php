@@ -37,7 +37,7 @@ class AddressStatusValidator extends AbstractValidator
             return;
         }
 
-        if (! in_array($value->getStatus(), [2,3,90])) {
+        if (! in_array($value->getStatus(), [10,11,20])) {
 
             $this->result->forProperty(lcfirst('status'))->addError(
                 new \TYPO3\CMS\Extbase\Error\Error(
