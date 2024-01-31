@@ -20,6 +20,7 @@ CREATE TABLE tx_simpleconsent_domain_model_address
 
 	hash            varchar(255) DEFAULT '' NOT NULL,
 	updated         tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	testing         tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	status          tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	feedback_tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	feedback_ip     varchar(255) DEFAULT '' NOT NULL,
@@ -34,8 +35,7 @@ CREATE TABLE tx_simpleconsent_domain_model_address
 	KEY             parent (pid),
 	KEY             hash (hash),
 	KEY             status (status),
-
-);
+) AUTO_INCREMENT = 100;
 
 #
 # Table structure for table 'tx_simpleconsent_domain_model_mail'

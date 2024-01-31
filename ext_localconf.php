@@ -36,7 +36,7 @@ call_user_func(
         //=================================================================
         // Register Logger
         //=================================================================
-        $GLOBALS['TYPO3_CONF_VARS']['LOG']['Madj2k']['SimpleOptIn']['writerConfiguration'] = [
+        $GLOBALS['TYPO3_CONF_VARS']['LOG']['Madj2k']['SimpleConsent']['writerConfiguration'] = [
 
             // configuration for WARNING severity, including all
             // levels with higher severity (ERROR, CRITICAL, EMERGENCY)

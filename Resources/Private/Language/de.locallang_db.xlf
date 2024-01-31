@@ -74,17 +74,21 @@
                 <source>Hash</source>
                 <target>Hash</target>
             </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status">
-                <source>Status</source>
-                <target>Status</target>
-            </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.updated">
                 <source>Updated</source>
                 <target>Aktualisiert</target>
             </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.testing">
+                <source>Testing</source>
+                <target>Testing</target>
+            </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.updated.1">
                 <source>Updated</source>
                 <target>Aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status">
+                <source>Status</source>
+                <target>Status</target>
             </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.0">
                 <source>Not yet addressed</source>
@@ -95,14 +99,18 @@
                 <target>Bestätigung ausstehend</target>
             </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.2">
+                <source>Confirmation pending (Reminder)</source>
+                <target>Bestätigung ausstehend (Reminder)</target>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.10">
                 <source>Contact confirmed</source>
                 <target>Kontakt bestätigt</target>
             </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.3">
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.11">
                 <source>Contact confirmed and marketing allowed</source>
                 <target>Kontakt bestätigt und Marketing erlaubt</target>
             </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.90">
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.20">
                 <source>Deletion requested</source>
                 <target>Löschung gewünscht</target>
             </trans-unit>

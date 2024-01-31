@@ -6,15 +6,10 @@ return [
         'tableName' => 'be_users',
     ],
     \Madj2k\SimpleConsent\Domain\Model\Mail::class => [
+        'tableName' => 'tx_simpleconsent_domain_model_mail',
         'properties' => [
-            'uid' => [
-                'fieldName' => 'uid'
-            ],
-            'pid' => [
-                'fieldName' => 'pid'
-            ],
-            'tstamp' => [
-                'fieldName' => 'tstamp'
+            'crdate' => [
+                'fieldName' => 'crdate'
             ],
         ],
     ],

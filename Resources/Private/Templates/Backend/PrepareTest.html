@@ -12,12 +12,21 @@
         <p class="tx_simpleconsent-description">
             <f:translate key="templates_backend_prepareTest.description" />
         </p>
-        
-        <f:form action="sendTest">
-            <f:render partial="PropertiesTest" arguments="{_all}" />
-            <f:form.button class="btn btn-primary">
-                <f:translate key="templates_backend_prepareTest.send" />
-            </f:form.button>
-        </f:form>
+
+        <div class="btn-toolbar">
+            <f:form action="sendTest">
+                <f:render partial="PropertiesTest" arguments="{_all}" />
+                <f:form.button class="btn btn-primary">
+                    <f:translate key="templates_backend_prepareTest.send" />
+                </f:form.button>
+            </f:form>
+
+            <f:form action="prepareSend">
+                <f:form.hidden name="mail" value="{mail}" />
+                <f:form.button class="btn btn-secondary" style="margin-left:2em">
+                    <f:translate key="templates_backend_prepareTest.next" />
+                </f:form.button>
+            </f:form>
+        </div>
     </f:section>
 </html>

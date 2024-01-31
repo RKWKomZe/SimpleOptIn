@@ -28,7 +28,6 @@ return [
     ],
     'columns' => [
 
-
         'hidden' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
@@ -152,6 +151,16 @@ return [
                 'type' => 'check',
                 'items' => [
                     ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.updated.1', ''],
+                ],
+            ],
+        ],
+        'testing' => [
+            'label'=>'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.testing',
+            'exclude' => 0,
+            'config'=>[
+                'type' => 'check',
+                'items' => [
+                    ['LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.testing.1', ''],
                 ],
             ],
         ],

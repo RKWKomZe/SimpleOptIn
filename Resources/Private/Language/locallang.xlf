@@ -238,6 +238,9 @@
 			<trans-unit id="templates_backend_prepareTest.send">
 				<source>Send</source>
 			</trans-unit>
+			<trans-unit id="templates_backend_prepareTest.next">
+				<source>Next</source>
+			</trans-unit>
 
 
 			<!-- Partials/Backend/PropertiesTest.html -->
@@ -278,7 +281,7 @@
 
             <!-- Templates/Backend/PrepareReminder.html -->
 			<trans-unit id="templates_backend_prepareReminder.headline">
-				<source>3.3 Send reminder</source>
+				<source>Send reminder</source>
 			</trans-unit>
 			<trans-unit id="templates_backend_prepareReminder.description">
 				<source>Here you can send the selected consent email as reminder to the imported addresses. Only those persons who have not yet responded to the last e-mail will be contacted again.</source>
@@ -297,6 +300,36 @@
 			</trans-unit>
 			<trans-unit id="partials_backend_propertiesReminder.reassure">
 				<source>I am sure that the email should be sent as reminder again.</source>
+			</trans-unit>
+
+
+			<!-- Templates/Backend/Sent.html -->
+			<trans-unit id="templates_backend_sent.headline">
+				<source>Sent E-Mails</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.description">
+				<source>Here you can see all consent emails that have already been sent and are currently being sent.</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.uid">
+				<source>ID</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.subject">
+				<source>Subject</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.crdate">
+				<source>Created</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.addresses">
+				<source>Addresses</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.sentTstamp">
+				<source>Sent</source>
+			</trans-unit>
+			<trans-unit id="templates_backend_sent.table.reminderTstamp">
+				<source>Reminder</source>
 			</trans-unit>
 
 

@@ -61,6 +61,9 @@
             <trans-unit id="tx_simpleconsent_domain_model_address.updated">
                 <source>Updated</source>
             </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.testing">
+                <source>Testing</source>
+            </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.updated.1">
                 <source>Updated</source>
             </trans-unit>
@@ -68,18 +71,21 @@
 				<source>Status</source>
 			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_address.status.0">
-				<source>Not yet addressed</source>
-			</trans-unit>
-			<trans-unit id="tx_simpleconsent_domain_model_address.status.1">
-				<source>Confirmation pending</source>
-			</trans-unit>
-			<trans-unit id="tx_simpleconsent_domain_model_address.status.2">
-				<source>Contact confirmed</source>
-			</trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.3">
+                <source>Not yet addressed</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.1">
+                <source>Confirmation pending</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.2">
+                <source>Confirmation pending (reminder)</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.10">
+                <source>Contact confirmed</source>
+            </trans-unit>
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.11">
                 <source>Contact confirmed and marketing allowed</source>
             </trans-unit>
-            <trans-unit id="tx_simpleconsent_domain_model_address.status.90">
+            <trans-unit id="tx_simpleconsent_domain_model_address.status.20">
                 <source>Deletion requested</source>
             </trans-unit>
             <trans-unit id="tx_simpleconsent_domain_model_address.status.99">

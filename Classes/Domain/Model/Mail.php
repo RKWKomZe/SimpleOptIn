@@ -35,7 +35,7 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
     /**
      * @var int
      */
-    protected int $tstamp = 0;
+    protected int $crdate = 0;
 
 
     /**
@@ -128,9 +128,13 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
      *
      * @return int
      */
-    public function getTstamp(): int
+    public function getCrdate(): int
     {
-        return $this->tstamp;
+        if (!$this->crdate) {
+            $this->crdate = time();
+        }
+
+        return $this->crdate;
     }
 
 
@@ -152,7 +156,7 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
      */
     public function getLabel():? string
     {
-        return $this->uid . ' - ' . $this->subject . ' (' . date('d.m.Y h:i', $this->getTstamp()) . ')';
+        return $this->uid . ' - ' . $this->subject . ' (' . date('d.m.Y H:i', $this->getCrdate()) . ')';
     }
 
 
@@ -244,7 +248,7 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
      */
     public function setPluginPid(int $pluginPid): void
     {
-        $this->status = $pluginPid;
+        $this->pluginPid = $pluginPid;
     }
 
 
