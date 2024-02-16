@@ -158,7 +158,7 @@
 
 			<!-- Templates/Consent/Show.html -->
             <trans-unit id="templates_show.confirm">
-                <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that the %s may continue to use my personal data.<br><strong>However, I do not agree</strong> to %1$s sending me satisfaction enquiries about our products, survey requests and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an e-mail to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
+                <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that the %s may continue to use my personal data. My consent is voluntary and can be revoked at any time with effect for the future by sending an e-mail to <a href="mailto:%s">%2$s</a>. <br><strong>However, I do not agree</strong> to %1$s sending me satisfaction enquiries about our products, survey requests and advertising about interesting products. Furthermore I have read and agree to the]]></source>
             </trans-unit>
             <trans-unit id="templates_show.confirmWithMarketing">
                 <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that %s may continue to use my personal data.<br><strong>I also expressly consent </strong> to %1$s sending me satisfaction enquiries regarding our products, survey enquiries and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an email to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
