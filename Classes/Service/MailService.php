@@ -58,6 +58,7 @@ class MailService implements \TYPO3\CMS\Core\SingletonInterface
             // add recipients
             $mailMessage->setTo(
                 [
+                    'salutation' =>  $recipient['salutation'],
                     'firstName' => $recipient['first_name'],
                     'lastName' => $recipient['last_name'],
                     'email' => $recipient['email']
