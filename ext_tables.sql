@@ -11,7 +11,7 @@ CREATE TABLE tx_simpleconsent_domain_model_address
 	title           varchar(255) DEFAULT '' NOT NULL,
 	first_name      varchar(255) DEFAULT '' NOT NULL,
 	last_name       varchar(255) DEFAULT '' NOT NULL,
-	company         varchar(255) DEFAULT '' NOT NULL,
+	company         mediumtext NOT NULL,
 	address         varchar(255) DEFAULT '' NOT NULL,
 	zip             varchar(255) DEFAULT '' NOT NULL,
 	city            varchar(255) DEFAULT '' NOT NULL,
