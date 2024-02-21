@@ -83,7 +83,7 @@
 				<source>Thank you very much for your consent.</source>
 			</trans-unit>
 			<trans-unit id="consentController.message.deleted">
-				<source>Thank you for your feedback. We will delete your personal data from our database as soon as possible.</source>
+				<source>Thank you for your feedback. We will delete your personal data from our database as soon as possible. Any registrations, orders, newsletters or subscriptions (e.g. RKW Magazine or ibr) associated with your personal data will be promptly deleted or cancelled by us.</source>
 			</trans-unit>
 			<trans-unit id="consentController.error.noAddressFound">
 				<source>Oops! Unfortunately, we could not find the related data. Please contact our support.</source>
@@ -164,7 +164,7 @@
                 <source><![CDATA[<strong class="text-green">Yes, I agree</strong> that %s may continue to use my personal data.<br><strong>I also expressly consent </strong> to %1$s sending me satisfaction enquiries regarding our products, survey enquiries and advertising about interesting products. My consent is voluntary and can be revoked at any time with effect for the future by sending an email to <a href="mailto:%s">%2$s</a>. Furthermore I have read and agree to the]]></source>
             </trans-unit>
             <trans-unit id="templates_show.delete">
-                <source><![CDATA[<strong class="text-red">No, I do not consent</strong> to %s continuing to use my personal data.<br>I understand that any registrations, orders or subscriptions associated with my personal data will also be deleted when you make this selection.]]></source>
+                <source><![CDATA[<strong class="text-red">No, I do not consent</strong> to %1$s continuing to use my personal data. I have taken note that with this selection, any registrations, orders, newsletters or subscriptions (e.g. RKW Magazine or ibr) associated with my personal data will also be deleted or cancelled.]]></source>
             </trans-unit>
             <trans-unit id="templates_show.confirm.partTwo">
                 <source>data protection declaration</source>

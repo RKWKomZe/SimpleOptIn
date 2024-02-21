@@ -106,8 +106,8 @@
 				<target>Herzlichen Dank für Ihre Einwilligung.</target>
 			</trans-unit>
 			<trans-unit id="consentController.message.deleted">
-				<source>Thank you for your feedback. We will delete your personal data from our database as soon as possible.</source>
-				<target>Danke für Ihre Rückmeldung. Wir werden Ihre personenbezogenen Daten schnellstmöglich aus unserem Datenbestand löschen.</target>
+				<source>Thank you for your feedback. We will delete your personal data from our database as soon as possible. Any registrations, orders, newsletters or subscriptions (e.g. RKW Magazine or ibr) associated with your personal data will be promptly deleted or cancelled by us.</source>
+				<target>Danke für Ihre Rückmeldung. Wir werden Ihre personenbezogenen Daten schnellstmöglich aus unserem Datenbestand löschen. Mit Ihren personenbezogenen Daten in Verbindung stehende Anmeldungen, Bestellungen, Newsletter oder Abonnements (z.B. RKW Magazin oder ibr) werden zeitnah von uns gelöscht bzw. beendet.</target>
 			</trans-unit>
 			<trans-unit id="consentController.error.noAddressFound">
 				<source>Oops! Unfortunately, we could not find the related data. Please contact our support.</source>
@@ -219,8 +219,8 @@
                 <target><![CDATA[<strong class="text-green">Ja, ich stimme zu</strong>, dass %1$s meine persönlichen Daten weiterhin verwenden darf.<br><strong>Zudem willige ich ausdrücklich ein</strong>, dass mir %1$s Zufriedenheitsanfragen bezüglich unserer Produkte, Umfrageanfragen und Werbung über interessante Produkte zusendet. Meine Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft per Mail an <a href="mailto:%2$s">%2$s</a> widerrufen werden. Ferner habe ich die]]></target>
             </trans-unit>
             <trans-unit id="templates_show.delete">
-                <source><![CDATA[<strong class="text-red">No, I do not consent</strong> to %1$s continuing to use my personal data. I understand that any registrations, orders or subscriptions associated with my personal data will also be deleted when you make this selection.]]></source>
-                <target><![CDATA[<strong class="text-red">Nein, ich stimme nicht zu</strong>, dass %1$s meine persönlichen Daten weiterhin verwenden darf.<br>Ich habe zur Kenntnis genommen, dass bei dieser Auswahl auch mit meinen persönlichen Daten in Verbindung stehende Anmeldungen, Bestellungen oder Abonnements gelöscht werden.]]></target>
+                <source><![CDATA[<strong class="text-red">No, I do not consent</strong> to %1$s continuing to use my personal data. I have taken note that with this selection, any registrations, orders, newsletters or subscriptions (e.g. RKW Magazine or ibr) associated with my personal data will also be deleted or cancelled.]]></source>
+                <target><![CDATA[<strong class="text-red">Nein, ich stimme nicht zu</strong>, dass %1$s meine persönlichen Daten weiterhin verwenden darf.<br>Ich habe zur Kenntnis genommen, dass bei dieser Auswahl auch mit meinen persönlichen Daten in Verbindung stehende Anmeldungen, Bestellungen, Newsletter oder Abonnements (z.B. RKW Magazin oder ibr) gelöscht bzw. beendet werden.]]></target>
             </trans-unit>
             <trans-unit id="templates_show.confirm.partTwo">
                 <source>data protection declaration</source>
