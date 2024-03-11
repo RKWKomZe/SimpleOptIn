@@ -15,6 +15,7 @@ CREATE TABLE tx_simpleconsent_domain_model_address
 	address         varchar(255) DEFAULT '' NOT NULL,
 	zip             varchar(255) DEFAULT '' NOT NULL,
 	city            varchar(255) DEFAULT '' NOT NULL,
+	country         varchar(255) DEFAULT '' NOT NULL,
 	phone           varchar(255) DEFAULT '' NOT NULL,
 	email           varchar(255) DEFAULT '' NOT NULL,
 

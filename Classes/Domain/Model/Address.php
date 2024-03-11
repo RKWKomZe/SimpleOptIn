@@ -78,6 +78,12 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var string
      */
+    protected string $country = '';
+
+
+    /**
+     * @var string
+     */
     protected string $phone = '';
 
 
@@ -306,6 +312,30 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->city = $city;
     }
+
+
+    /**
+     * Returns country
+     *
+     * @return string $country
+     */
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+
+    /**
+     * Sets country
+     *
+     * @param string $country
+     * @return void
+     */
+    public function setCountry(string $country): void
+    {
+        $this->country = $country;
+    }
+
 
     /**
      * Returns phone

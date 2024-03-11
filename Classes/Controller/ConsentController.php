@@ -129,7 +129,7 @@ class ConsentController extends ActionController
         // Update some fields if they are set!
         $allowedProperties = [
             'gender', 'title', 'firstName', 'lastName',
-            'company', 'address', 'zip', 'city', 'phone', 'email'];
+            'company', 'address', 'zip', 'city', 'country', 'phone', 'email'];
 
         foreach ($allowedProperties as $property) {
             $getter = 'get' . ucFirst($property);

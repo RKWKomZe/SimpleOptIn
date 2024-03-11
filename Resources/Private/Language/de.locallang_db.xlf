@@ -62,6 +62,10 @@
 				<source>City</source>
 				<target>Stadt</target>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.country">
+				<source>Country</source>
+				<target>Land</target>
+			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_address.phone">
 				<source>Phone</source>
 				<target>Telefon</target>

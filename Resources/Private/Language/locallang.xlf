@@ -40,6 +40,9 @@
 			<trans-unit id="tx_simpleconsent_domain_model_address.city">
 				<source>City</source>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_address.country">
+				<source>Country</source>
+			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_address.phone">
 				<source>Phone</source>
 			</trans-unit>
