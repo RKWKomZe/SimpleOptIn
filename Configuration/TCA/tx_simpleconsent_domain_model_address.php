@@ -18,10 +18,10 @@ return [
         'iconfile' => 'EXT:simple_consent/Resources/Public/Icons/tx_simpleconsent_domain_model_address.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'hidden, title, gender, company, first_name, last_name, address, zip, city, email, phone, status, feedback_tstamp, feedback_ip',
+        'showRecordFieldList' => 'hidden, title, gender, company, first_name, last_name, address, zip, city, country, email, phone, status, feedback_tstamp, feedback_ip',
     ],
     'types' => [
-        '1' => ['showitem' => 'hidden,--palette--;;1, title, gender, company, first_name, last_name, address, zip, city, email, phone, status, feedback_tstamp, feedback_ip'],
+        '1' => ['showitem' => 'hidden,--palette--;;1, title, gender, company, first_name, last_name, address, zip, city, country, email, phone, status, feedback_tstamp, feedback_ip'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -110,6 +110,15 @@ return [
         'city' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.city',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'country' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_address.country',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -206,5 +215,10 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'external_uid' => [
+            'config' => [
+                'type' => 'passthrough',
+            ]
+        ]
     ],
 ];
