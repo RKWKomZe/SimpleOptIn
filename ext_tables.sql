@@ -24,6 +24,7 @@ CREATE TABLE tx_simpleconsent_domain_model_address
 	status          tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	feedback_tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	feedback_ip     varchar(255) DEFAULT '' NOT NULL,
+	external_uid    int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp          int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate          int(11) unsigned DEFAULT '0' NOT NULL,

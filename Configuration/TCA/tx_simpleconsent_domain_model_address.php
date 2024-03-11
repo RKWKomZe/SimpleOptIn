@@ -205,5 +205,10 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'external_uid' => [
+            'config' => [
+                'type' => 'passthrough',
+            ]
+        ]
     ],
 ];
