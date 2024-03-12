@@ -43,7 +43,8 @@
                     <strong><postmaster:email.translate key="templates_email_consent.details" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" />:</strong>
                 </td>
             </tr>
-            <td style="background:#E64415; font-size:14px; color:#ffffff; padding: 16px">
+            <tr>
+                <td style="background:#E64415; font-size:14px; color:#ffffff; padding: 16px">
                     <strong>
                         <a href="<postmaster:email.uri.action action='show' controller='Consent' extensionName='simpleConsent' pluginName='Consent' absolute='true' noCacheHash='true' pageUid='{settings.consentPid}' additionalParams='{tx_simpleconsent_consent: {hash: recipient.hash}}'  />"
                             style="color:#ffffff;">
