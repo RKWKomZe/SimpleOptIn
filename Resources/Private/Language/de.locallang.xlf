@@ -461,10 +461,13 @@
 				<target>Hallo</target>
 			</trans-unit>
 			<trans-unit id="templates_email_consent.details">
-				<source>Give consent or ask for deletion</source>
-				<target>Einwilligung geben oder um Löschung bitten</target>
+				<source>Give consent or ask for deletion (click or copy link)</source>
+				<target>Einwilligung geben oder um Löschung bitten (klicken oder Link kopieren)</target>
 			</trans-unit>
-
+			<trans-unit id="templates_email_consent.security">
+				<source>Your security is important to us: The link above refers to our website %s. With the random character strings (hash) in the link, we ensure that only you can access your data via the link. Do you have any questions? Please contact us!</source>
+				<target>Ihre Sicherheit ist uns wichtig: Der obenstehende Link verweist auf unsere Website %s. Mit den zufälligen Zeichenfolgen (Hash) im Link stellen wir sicher, dass nur Sie über den Link auf Ihre Daten zugreifen können. Sie haben Fragen? Melden Sie sich gerne!</target>
+			</trans-unit>
 
         </body>
 	</file>
