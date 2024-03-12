@@ -54,6 +54,7 @@ plugin.tx_simpleconsent {
         privacyPid = {$plugin.tx_simpleconsent.settings.privacyPid}
         companyName = {$plugin.tx_simpleconsent.settings.companyName}
         companyEmail = {$plugin.tx_simpleconsent.settings.companyEmail}
+        companyDomain = {$plugin.tx_simpleconsent.settings.companyDomain}
 	}
 }
 

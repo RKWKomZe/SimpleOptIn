@@ -9,7 +9,7 @@
         <postmaster:email.recipientSalutation queueRecipient="{queueRecipient}"
               prependText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')} "
               appendText="!"
-              fallbackText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey='{queueRecipient.languageCode}', extensionName:'simpleConsent)}!"
+              fallbackText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')}!"
         />\n\n
         
         {mail.textPlainFormatted}\n\n\n\n
@@ -18,7 +18,9 @@
         <postmaster:email.uri.action action="show" controller="Consent" extensionName="simpleConsent" pluginName="Consent"
                  absolute="true" noCacheHash="true" pageUid="{settings.consentPid}"
                  additionalParams="{tx_simpleconsent_consent: {hash: recipient.hash}}" />
-
+        \n\n
+        <postmaster:email.translate key="templates_email_consent.security" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" arguments="{0: settings.companyDomain}"/>
+        
     </postmaster:email.plaintextLineBreaks></f:section>
 
     <!-- HTML -->
@@ -27,21 +29,37 @@
             <postmaster:email.recipientSalutation queueRecipient="{queueRecipient}"
                   prependText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')} "
                   appendText="!"
-                  fallbackText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey='{queueRecipient.languageCode}', extensionName:'simpleConsent)}!"
+                  fallbackText="{postmaster:email.translate(key:'templates_email_consent.salutation', languageKey:'{queueRecipient.languageCode}', extensionName:'simpleConsent')}!"
             />
         </h1>
         
         <f:format.raw>{mail.textHtml}</f:format.raw>
 
         <br><br>
-        <table bgcolor="#E64415" style="background:#E64415">
+        <table>
             <tr>
-                <td>
-                    <a href="<postmaster:email.uri.action action='show' controller='Consent' extensionName='simpleConsent' pluginName='Consent' absolute='true' noCacheHash='true' pageUid='{settings.consentPid}' additionalParams='{tx_simpleconsent_consent: {hash: recipient.hash}}'  />" class="button">
-                        <postmaster:email.translate key="templates_email_consent.details" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" />
-                    </a>
+            <tr>
+                <td style="background-color:#515151; color:#ffffff; font-size:14px; padding: 16px">
+                    <strong><postmaster:email.translate key="templates_email_consent.details" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" />:</strong>
                 </td>
             </tr>
+            <tr>
+                <td style="background:#E64415; font-size:14px; color:#ffffff; padding: 16px">
+                    <strong>
+                        <a href="<postmaster:email.uri.action action='show' controller='Consent' extensionName='simpleConsent' pluginName='Consent' absolute='true' noCacheHash='true' pageUid='{settings.consentPid}' additionalParams='{tx_simpleconsent_consent: {hash: recipient.hash}}'  />"
+                            style="color:#ffffff;">
+                            <postmaster:email.uri.action action="show" controller="Consent" extensionName="simpleConsent" 
+                                                         pluginName="Consent" absolute="true" noCacheHash="true" pageUid="{settings.consentPid}" 
+                                                         additionalParams="{tx_simpleconsent_consent: {hash: recipient.hash}}"  />
+                        </a>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-color:#515151; color:#ffffff; font-size:12px; padding: 16px">
+                    <postmaster:email.translate key="templates_email_consent.security" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" arguments="{0: settings.companyDomain}"/>
+                </td>
+            </tr>            
         </table>
     </f:section>
 

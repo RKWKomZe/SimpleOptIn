@@ -347,8 +347,12 @@
 				<source>Hallo</source>
 			</trans-unit>
 			<trans-unit id="templates_email_consent.details">
-				<source>Give consent or ask for deletion</source>
+				<source>Give consent or ask for deletion (click or copy link)</source>
 			</trans-unit>
+			<trans-unit id="templates_email_consent.security">
+				<source>Security is important to us: The link above refers to the website %s. With the random character strings (hash), we ensure that only you can access your data via the link.</source>
+			</trans-unit>
+
 
         </body>
 	</file>
