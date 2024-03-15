@@ -53,7 +53,19 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
     /**
      * @var string
      */
+    protected string $textPlainFooter = '';
+
+
+    /**
+     * @var string
+     */
     protected string $textHtml = '';
+
+
+    /**
+     * @var string
+     */
+    protected string $textHtmlFooter = '';
 
 
     /**
@@ -207,6 +219,40 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
 
 
     /**
+     * Returns textPlainFooter
+     *
+     * @return string $textPlainFooter
+     */
+    public function getTextPlainFooter(): string
+    {
+        return $this->textPlainFooter;
+    }
+
+
+    /**
+     * Returns textPlainFooter
+     *
+     * @return string $textPlainFooter
+     */
+    public function getTextPlainFooterFormatted (): string
+    {
+        return preg_replace('#<br />#', '\n', nl2br($this->textPlainFooter));
+    }
+
+
+    /**
+     * Sets textPlainFooter
+     *
+     * @param string $textPlainFooter
+     * @return void
+     */
+    public function setTextPlainFooter(string $textPlainFooter): void
+    {
+        $this->textPlainFooter = $textPlainFooter;
+    }
+
+
+    /**
      * Returns textHtml
      *
      * @return string $textHtml
@@ -226,6 +272,29 @@ class Mail extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements Ser
     public function setTextHtml(string $textHtml): void
     {
         $this->textHtml = $textHtml;
+    }
+
+
+    /**
+     * Returns textHtmlFooter
+     *
+     * @return string $textHtmlFooter
+     */
+    public function getTextHtmlFooter(): string
+    {
+        return $this->textHtmlFooter;
+    }
+
+
+    /**
+     * Sets textHtmlFooter
+     *
+     * @param string $textHtmlFooter
+     * @return void
+     */
+    public function setTextHtmlFooter(string $textHtmlFooter): void
+    {
+        $this->textHtmlFooter = $textHtmlFooter;
     }
 
 

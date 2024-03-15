@@ -61,8 +61,14 @@
 			<trans-unit id="tx_simpleconsent_domain_model_mail.text_plain">
 				<source>Message (Plaintext)</source>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_plain_footer">
+				<source>Message Footer (Plaintext)</source>
+			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html">
 				<source>Message (HTML)</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html_footer">
+				<source>Message Footer (HTML)</source>
 			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_mail.status.0">
                 <source>Draft</source>

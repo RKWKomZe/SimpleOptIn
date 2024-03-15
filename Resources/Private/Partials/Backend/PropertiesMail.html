@@ -53,6 +53,21 @@
         </tr>
         <tr>
             <td>
+                <label for="text_plain_footer">
+                    <f:translate key="tx_simpleconsent_domain_model_mail.text_plain_footer" />
+                </label>
+            </td>
+            <td>
+                <f:form.textarea
+                    class="form-control"
+                    property="textPlainFooter"
+                    id="text_plain_footer"
+                    value="{mail.textPlainFooter}"
+                />
+            </td>
+        </tr>        
+        <tr>
+            <td>
                 <label for="text_html">
                     <f:translate key="tx_simpleconsent_domain_model_mail.text_html" />
                 </label>
@@ -67,5 +82,20 @@
                 />
             </td>
         </tr>
+        <tr>
+            <td>
+                <label for="text_html_footer">
+                    <f:translate key="tx_simpleconsent_domain_model_mail.text_html_footer" />
+                </label>
+            </td>
+            <td>
+                <f:form.textarea
+                    class="form-control"
+                    property="textHtmlFooter"
+                    id="text_html_footer"
+                    value="{mail.textHtmlFooter}"
+                />
+            </td>
+        </tr>        
     </table>
 </html>
