@@ -78,9 +78,17 @@
 				<source>Message (Plaintext)</source>
 				<target>Nachricht (Plaintext)</target>
 			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_plain_footer">
+				<source>Message Footer (Plaintext)</source>
+				<target>Nachricht Footer (Plaintext)</target>
+			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html">
 				<source>Message (HTML)</source>
 				<target>Nachricht (HTML)</target>
+			</trans-unit>
+			<trans-unit id="tx_simpleconsent_domain_model_mail.text_html_footer">
+				<source>Message Footer (HTML)</source>
+				<target>Nachricht Footer (HTML)</target>
 			</trans-unit>
 			<trans-unit id="tx_simpleconsent_domain_model_mail.status.0">
                 <source>Draft</source>
@@ -461,14 +469,13 @@
 				<target>Hallo</target>
 			</trans-unit>
 			<trans-unit id="templates_email_consent.details">
-				<source>Give consent or ask for deletion (click or copy link)</source>
-				<target>Einwilligung geben oder um Löschung bitten (klicken oder Link kopieren)</target>
+				<source>Give consent or ask for deletion</source>
+				<target>Einwilligung geben oder Daten löschen</target>
 			</trans-unit>
 			<trans-unit id="templates_email_consent.security">
 				<source>Your security is important to us: The link above refers to our website %s. With the random character strings (hash) in the link, we ensure that only you can access your data via the link. Do you have any questions? Please contact us!</source>
-				<target>Ihre Sicherheit ist uns wichtig: Der obenstehende Link verweist auf unsere Website %s. Mit den zufälligen Zeichenfolgen (Hash) im Link stellen wir sicher, dass nur Sie über den Link auf Ihre Daten zugreifen können. Sie haben Fragen? Melden Sie sich gerne!</target>
+				<target>Ihre Sicherheit ist uns wichtig: Der obenstehende Link verweist auf unsere Website %s. Mit den zufälligen Zeichenfolgen (Hash) im Link stellen wir sicher, dass nur Sie über den Link auf Ihre Daten zugreifen können. Sie haben Fragen dazu? Melden Sie sich gerne!</target>
 			</trans-unit>
-
         </body>
 	</file>
 </xliff>

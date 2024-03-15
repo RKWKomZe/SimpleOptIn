@@ -56,9 +56,30 @@ return [
                 'eval' => 'trim',
             ],
         ],
+        'text_plain_footer' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.text_plain_footer',
+            'config' => [
+                'type' => 'text',
+                'cols' => '40',
+                'rows' => '15',
+                'eval' => 'trim',
+            ],
+        ],
         'text_html' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.text_html',
+            'config' => [
+                'type' => 'text',
+                'cols' => '40',
+                'rows' => '15',
+                'eval' => 'trim',
+                'enableRichtext' => true
+            ],
+        ],
+        'text_html_footer' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:simple_consent/Resources/Private/Language/locallang_db.xlf:tx_simpleconsent_domain_model_mail.text_html_footer',
             'config' => [
                 'type' => 'text',
                 'cols' => '40',
