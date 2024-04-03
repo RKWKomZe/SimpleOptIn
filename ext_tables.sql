@@ -18,6 +18,7 @@ CREATE TABLE tx_simpleconsent_domain_model_address
 	country         varchar(255) DEFAULT '' NOT NULL,
 	phone           varchar(255) DEFAULT '' NOT NULL,
 	email           varchar(255) DEFAULT '' NOT NULL,
+	comment         varchar(255) DEFAULT '' NOT NULL,
 
 	hash            varchar(255) DEFAULT '' NOT NULL,
 	updated         tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -58,7 +59,7 @@ CREATE TABLE tx_simpleconsent_domain_model_mail
 	reminder          tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	sent_tstamp       int(11) unsigned DEFAULT '0' NOT NULL,
 	reminder_tstamp   int(11) unsigned DEFAULT '0' NOT NULL,
-	addresses         text                    NOT NULL,
+	addresses         longtext                    NOT NULL,
 	queue_mail        int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp            int(11) unsigned DEFAULT '0' NOT NULL,
