@@ -39,24 +39,16 @@
 
         <table>
             <tr>
-            <tr>
-                <td style="padding: 16px 32px 0 32px;">
-                    <h2><postmaster:email.translate key="templates_email_consent.details" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" />:</h2>
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size:14px; padding: 16px 32px 0 32px;">
+                <td style="font-size:18px; line-height:20px; padding: 24px 32px 0 32px;">
                     <strong>
-                        <a href="<postmaster:email.uri.action action='show' controller='Consent' extensionName='simpleConsent' pluginName='Consent' absolute='true' noCacheHash='true' pageUid='{settings.consentPid}' additionalParams='{tx_simpleconsent_consent: {hash: recipient.hash}}'  />">
-                            <postmaster:email.uri.action action="show" controller="Consent" extensionName="simpleConsent"
-                                                         pluginName="Consent" absolute="true" noCacheHash="true" pageUid="{settings.consentPid}"
-                                                         additionalParams="{tx_simpleconsent_consent: {hash: recipient.hash}}"  />
+                        <a style="color:#041eb6" href="<postmaster:email.uri.action action='show' controller='Consent' extensionName='simpleConsent' pluginName='Consent' absolute='true' noCacheHash='true' pageUid='{settings.consentPid}' additionalParams='{tx_simpleconsent_consent: {hash: recipient.hash}}'  />">
+                            <postmaster:email.translate key="templates_email_consent.details" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" />
                         </a>
                     </strong>
                 </td>
             </tr>
             <tr>
-                <td style="color:#515151; font-size:12px; padding: 16px 32px 32px 32px;">
+                <td style="color:#515151; font-size:12px; line-height:14px; padding: 16px 32px 32px 32px;">
                     <postmaster:email.translate key="templates_email_consent.security" languageKey="{queueRecipient.languageCode}" extensionName="simpleConsent" arguments="{0: settings.companyDomain}"/>
                 </td>
             </tr>
