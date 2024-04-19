@@ -17,9 +17,6 @@ return [
         'searchFields' => ' first_name,last_name,address,zip,city,email,phone',
         'iconfile' => 'EXT:simple_consent/Resources/Public/Icons/tx_simpleconsent_domain_model_address.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden, title, gender, company, first_name, last_name, address, zip, city, country, email, phone, status, feedback_tstamp, feedback_ip',
-    ],
     'types' => [
         '1' => ['showitem' => 'hidden,--palette--;;1, title, gender, company, first_name, last_name, address, zip, city, country, email, phone, status, feedback_tstamp, feedback_ip'],
     ],
