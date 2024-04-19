@@ -15,9 +15,6 @@ return [
         'searchFields' => 'subject, text_plain, text_html, status',
         'iconfile' => 'EXT:simple_consent/Resources/Public/Icons/tx_simpleconsent_domain_model_mail.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden, subject, text_plain, text_html',
-    ],
     'types' => [
         '1' => ['showitem' => 'hidden,--palette--;;1, subject, text_plain, text_html, status, reminder'],
     ],
